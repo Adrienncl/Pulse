@@ -1,0 +1,142 @@
+{
+  "project_id": "demo_164ce21c",
+  "template_id": "restaurant_premium",
+  "brand": {
+    "brand_name": "Boulangerie Martin",
+    "positioning": "Boulangerie Martin is dedicated to delivering exceptional experiences.",
+    "brand_voice": "passionate, traditional, community-focused",
+    "color_palette": {
+      "primary": "#A0522D",
+      "secondary": "#FAEBD7",
+      "accent": "#CD853F"
+    },
+    "typography_direction": "warm script headings with clean body text",
+    "visual_style": "modern boulangerie, clean and inviting",
+    "image_prompts": [
+      "A warm cinematic photo of a modern boulangerie, clean and inviting restaurant interior with natural light and rustic wood tables",
+      "Fresh handmade pasta on a ceramic plate, warm lighting, authentic Boulangerie Martin style",
+      "A cozy restaurant exterior at golden hour, elegant signage, inviting neighborhood feeling"
+    ],
+    "category": "bakery"
+  },
+  "content": {
+    "hero_title": "Fra\u00eecheur du Jour, Chaque Matin",
+    "hero_subtitle": "Nous cr\u00e9ons du pain avec passion depuis plus de 20 ans.",
+    "hero_description": "Welcome to Boulangerie Martin \u2014 Boulangerie Martin is dedicated to delivering exceptional experiences..",
+    "cta_text": "Get Started",
+    "about_title": "Notre Histoire",
+    "about_text": "Fond\u00e9e avec la passion du pain authentique, nous cr\u00e9ons chaque jour des pains au levain naturel et des viennoiseries bio avec des ingr\u00e9dients locaux et des recettes traditionnelles transmises de g\u00e9n\u00e9ration en g\u00e9n\u00e9ration.",
+    "about_text_2": "Every detail at Boulangerie Martin is designed with you in mind. From our carefully curated bakery to our exceptional service, we strive to create memorable experiences.",
+    "menu_title": "Our Services",
+    "menu_subtitle": "Explore what we offer",
+    "menu_categories": [
+      "Pains",
+      "Viennoiseries",
+      "P\u00e2tisseries",
+      "Boissons",
+      "Sp\u00e9cialit\u00e9s"
+    ],
+    "menu_items": [
+      {
+        "name": "Pain au Levain Naturel",
+        "description": "Notre pain signature \u2014 levain vivant, farine bio, cuisson au four \u00e0 bois.",
+        "price": "$8",
+        "tags": [
+          "Signature",
+          "Bio"
+        ]
+      },
+      {
+        "name": "Croissant au Beurre",
+        "description": "Croissant feuillet\u00e9 au beurre AOP, croustillant \u00e0 l'ext\u00e9rieur, fondant \u00e0 l'int\u00e9rieur.",
+        "price": "$4.50",
+        "tags": [
+          "Classique"
+        ]
+      },
+      {
+        "name": "Pain au Chocolat",
+        "description": "P\u00e2te lev\u00e9e feuillet\u00e9e avec chocolat noir 70% artisanal.",
+        "price": "$5",
+        "tags": [
+          "Populaire"
+        ]
+      },
+      {
+        "name": "Baguette Tradition",
+        "description": "Baguette \u00e0 la farine de tradition fran\u00e7aise, cro\u00fbte dor\u00e9e et mie alv\u00e9ol\u00e9e.",
+        "price": "$3.50",
+        "tags": [
+          "Quotidien"
+        ]
+      },
+      {
+        "name": "Tarte aux Fruits",
+        "description": "Tarte sabl\u00e9e avec cr\u00e8me p\u00e2tissi\u00e8re vanille et fruits de saison.",
+        "price": "$32",
+        "tags": [
+          "P\u00e2tisserie",
+          "Saison"
+        ]
+      },
+      {
+        "name": "\u00c9clair au Caf\u00e9",
+        "description": "P\u00e2te \u00e0 choux garnie de cr\u00e8me au beurre caf\u00e9 et gla\u00e7age fondant.",
+        "price": "$6",
+        "tags": [
+          "P\u00e2tisserie"
+        ]
+      },
+      {
+        "name": "Saucisson Sec Artisanal",
+        "description": "Saucisson s\u00e9ch\u00e9 maison, affin\u00e9 4 semaines, go\u00fbt intense etauthentique.",
+        "price": "$28/kg",
+        "tags": [
+          "Charcuterie"
+        ]
+      },
+      {
+        "name": "Caf\u00e9 Espresso",
+        "description": "Caf\u00e9 torr\u00e9fi\u00e9 artisanal, intensity et ar\u00f4mes d'exception.",
+        "price": "$4",
+        "tags": [
+          "Boisson"
+        ]
+      }
+    ],
+    "gallery_title": "Gallery",
+    "gallery_subtitle": "A glimpse into the {brand_name} experience",
+    "reservation_title": "Get in Touch",
+    "reservation_text": "Venez nous rendre visite d\u00e8s 7h du matin! Commandes sp\u00e9ciales et g\u00e2teaux sur mesure disponibles sur demande.",
+    "testimonial_title": "Ce que disent nos Clients",
+    "testimonials": [
+      {
+        "quote": "Le meilleur pain au levain que j'ai go\u00fbt\u00e9. La cro\u00fbte est parfaite et le go\u00fbt est incomparable.",
+        "author_name": "Marie L.",
+        "author_title": "Cliente fid\u00e8le",
+        "stars": 5
+      },
+      {
+        "quote": "Nous venons chaque samedi matin pour les croissants. C'est devenu notre ritual du weekend!",
+        "author_name": "Thomas & Sophie",
+        "author_title": "R\u00e9guliers",
+        "stars": 5
+      },
+      {
+        "quote": "Une boulangerie qui respecte les traditions. On sent la passion dans chaque bouch\u00e9e.",
+        "author_name": "Pierre D.",
+        "author_title": "Avis Google",
+        "stars": 5
+      }
+    ],
+    "contact_title": "Get in Touch",
+    "contact_text": "Have a question or want to make a reservation? We'd love to hear from you.",
+    "contact_address": "123 Main Street, Downtown, NY 10001",
+    "contact_phone": "+1 (555) 123-4567",
+    "contact_email": "hello@boulangeriemartin.com",
+    "contact_hours": "Mon-Sun: 11:00 AM - 10:00 PM",
+    "footer_description": "Boulangerie Martin \u2014 Boulangerie Martin is dedicated to delivering exceptional experiences.",
+    "years_experience": 20
+  },
+  "composed_at": "2026-06-17T17:04:43.120974"
+}

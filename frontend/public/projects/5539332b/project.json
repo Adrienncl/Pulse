@@ -1,0 +1,144 @@
+{
+  "project_id": "5539332b",
+  "template_id": "restaurant_premium",
+  "brand": {
+    "brand_name": "Boulangerie Martin",
+    "positioning": "Boulangerie Martin delivers an authentic dining experience with locally sourced ingredients and time-honored recipes.",
+    "brand_voice": "passionate, inviting, community-focused",
+    "color_palette": {
+      "primary": "#C45B28",
+      "secondary": "#F5E6D3",
+      "accent": "#1B4332"
+    },
+    "typography_direction": "elegant serif headlines with clean sans-serif body text",
+    "visual_style": "rustic Italian trattoria, cinematic warm light",
+    "image_prompts": [
+      "A warm cinematic photo of a rustic Italian trattoria, cinematic warm light restaurant interior with natural light and rustic wood tables",
+      "Fresh handmade pasta on a ceramic plate, warm lighting, authentic Boulangerie Martin style",
+      "A cozy restaurant exterior at golden hour, elegant signage, inviting neighborhood feeling"
+    ],
+    "category": "restaurant"
+  },
+  "content": {
+    "hero_title": "Experience the Art of Fine Dining",
+    "hero_subtitle": "Where culinary tradition meets modern elegance.",
+    "hero_description": "Boulangerie Martin delivers an authentic dining experience with locally sourced ingredients and time-honored recipes..",
+    "cta_text": "Reserve a Table",
+    "about_title": "From Our Family to Yours",
+    "about_text": "Our journey began with a simple dream: to share the flavors of Italy with our community. Today, we continue that tradition with every plate we serve, every guest we welcome.",
+    "about_text_2": "Boulangerie Martin is more than a restaurant \u2014 it's a place where tradition meets community, and every visit feels like coming home.",
+    "menu_title": "Our Menu",
+    "menu_subtitle": "Discover our carefully crafted selection",
+    "menu_categories": [
+      "Antipasti",
+      "Pasta",
+      "Pizza",
+      "Secondi",
+      "Dolci",
+      "Drinks"
+    ],
+    "menu_items": [
+      {
+        "name": "Burrata e Pomodori",
+        "description": "Creamy burrata with marinated tomatoes, basil oil, and aged balsamic.",
+        "price": "$16",
+        "tags": [
+          "Vegetarian",
+          "Chef's Pick"
+        ]
+      },
+      {
+        "name": "Tagliatelle al Rag\u00f9",
+        "description": "Fresh handmade tagliatelle with slow-cooked beef rag\u00f9 and Parmigiano.",
+        "price": "$22",
+        "tags": [
+          "Signature"
+        ]
+      },
+      {
+        "name": "Pizza Margherita DOP",
+        "description": "San Marzano tomatoes, fresh mozzarella di bufala, basil, extra virgin olive oil.",
+        "price": "$18",
+        "tags": [
+          "Classic"
+        ]
+      },
+      {
+        "name": "Branzino al Forno",
+        "description": "Whole roasted sea bass with lemon, capers, and roasted vegetables.",
+        "price": "$28",
+        "tags": [
+          "Gluten-Free"
+        ]
+      },
+      {
+        "name": "Osso Buco",
+        "description": "Braised veal shank with saffron risotto and gremolata.",
+        "price": "$32",
+        "tags": [
+          "Signature",
+          "Chef's Pick"
+        ]
+      },
+      {
+        "name": "Tiramisu Classico",
+        "description": "Classic tiramisu with espresso-soaked ladyfingers and mascarpone cream.",
+        "price": "$12",
+        "tags": [
+          "Dessert"
+        ]
+      },
+      {
+        "name": "Panna Cotta",
+        "description": "Vanilla bean panna cotta with seasonal berry compote.",
+        "price": "$10",
+        "tags": [
+          "Dessert",
+          "Gluten-Free"
+        ]
+      },
+      {
+        "name": "Spritz Aperol",
+        "description": "Aperol, prosecco, soda water, fresh orange slice.",
+        "price": "$14",
+        "tags": [
+          "Cocktail"
+        ]
+      }
+    ],
+    "gallery_title": "Gallery",
+    "gallery_subtitle": "Discover the Boulangerie Martin experience through our lens",
+    "reservation_title": "Make a Reservation",
+    "reservation_text": "Reserve your table and join us for an unforgettable dining experience. Walk-ins welcome, but reservations recommended for parties of 4+.",
+    "testimonial_title": "What Our Guests Say",
+    "testimonials": [
+      {
+        "quote": "The best Italian food I've had outside of Italy. The pasta is incredibly fresh and the atmosphere is magical.",
+        "author_name": "Sarah M.",
+        "author_title": "Food Blogger",
+        "stars": 5
+      },
+      {
+        "quote": "A hidden gem! The osso buco is to die for. We come here every anniversary now.",
+        "author_name": "Michael & Lisa R.",
+        "author_title": "Regular Guests",
+        "stars": 5
+      },
+      {
+        "quote": "Impeccable service and flavors that transport you straight to Tuscany. Highly recommended!",
+        "author_name": "James K.",
+        "author_title": "Google Review",
+        "stars": 5
+      }
+    ],
+    "contact_title": "Get in Touch",
+    "contact_text": "Have a question or want to make a reservation? We'd love to hear from you.",
+    "contact_address": "123 Main Street, Downtown, NY 10001",
+    "contact_phone": "+1 (555) 123-4567",
+    "contact_email": "hello@boulangeriemartin.com",
+    "contact_hours": "Mon-Sun: 11:00 AM - 10:00 PM",
+    "footer_description": "Boulangerie Martin \u2014 Boulangerie Martin delivers an authentic dining experience with locally sourced ingredients and time-honored recipes.",
+    "years_experience": 23
+  },
+  "composed_at": "2026-06-17T23:58:44.760019"
+}

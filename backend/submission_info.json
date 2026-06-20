@@ -1,0 +1,57 @@
+{
+  "project_name": "Zero Employee Studio OS",
+  "tagline": "Votre agence créative autonome — zéro employé, résultats professionnels",
+  "description": "Zero Employee Studio OS est une plateforme qui automatisé le workflow complet d'une agence créative. Un client fournit un brief, et 4 agents IA enchaînent automatiquement : analyse du brief, calcul du pricing, gestion du paiement Stripe, et production créative. Le résultat : un package créatif complet (logo, site web, posts social media, brand identity) livré en quelques minutes, sans aucun employé humain.",
+  "problem": "Les agences créatives traditionnelles sont lentes (2-4 semaines), chères ($2000-10000), et dépendantes de multiples intervenants humains. Chaque projet nécessite un chef de projet, un designer, un développeur, un rédacteur — chaque ajout augmente les coûts et les délais.",
+  "solution": "Notre OS remplace toute l'équipe par 4 agents IA qui travaillent en chaîne en quelques secondes. Le résultat est un package créatif professionnel à un prix accessible ($499-999), livré en quelques minutes au lieu de semaines.",
+  "team_name": "Zero Employee Studio",
+  "team_members": ["Zero Employee Studio Team"],
+  "technologies": [
+    "Python 3.14",
+    "FastAPI",
+    "React 18",
+    "Vite",
+    "Tailwind CSS",
+    "Stripe API (test mode)",
+    "Hermes Agent (Nous Research)",
+    "Nvidia GPU (inference)"
+  ],
+  "key_features": [
+    "4 agents IA autonomes enchaînés",
+    "Workflow complet de brief à livraison",
+    "Dashboard React avec dark mode et glassmorphism",
+    "Paiement Stripe automatique (test mode)",
+    "Production créative simulée avec templates réalistes",
+    "Page de présentation statique professionnelle"
+  ],
+  "architecture": {
+    "backend": "Python FastAPI sur port 8000",
+    "frontend": "React + Vite + Tailwind CSS sur port 5173",
+    "agents": [
+      "intake_agent.py — Analyse de brief",
+      "pricing_agent.py — Calcul de pricing",
+      "stripe_agent.py — Gestion Stripe",
+      "creative_agent.py — Production créative"
+    ]
+  },
+  "demo_metrics": {
+    "brief_analysis_time": "< 1 seconde",
+    "pricing_calculation_time": "< 0.5 seconde",
+    "checkout_creation_time": "< 0.5 seconde",
+    "creative_generation_time": "< 1 seconde",
+    "total_workflow_time": "< 3 secondes",
+    "package_price_range": "$499 - $999",
+    "estimated_margin": "95.8%",
+    "human_employees": 0
+  },
+  "links": {
+    "github": "[à compléter avec le lien GitHub]",
+    "demo_video": "[à compléter après enregistrement]",
+    "presentation": "frontend/public/presentation.html"
+  },
+  "hackathon": {
+    "name": "Zero Employee Studio Hackathon",
+    "deadline": "June 30, 2026",
+    "video_length": "1-3 minutes"
+  }
+}

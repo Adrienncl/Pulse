@@ -1,0 +1,43 @@
+{
+  "project_id": "test_001",
+  "template_id": "restaurant_premium",
+  "brand": {
+    "brand_name": "Boulangerie Martin",
+    "category": "bakery",
+    "positioning": "Boulangerie Martin is dedicated to delivering exceptional experiences.",
+    "color_palette": {
+      "primary": "#8B4513",
+      "secondary": "#F5DEB3",
+      "accent": "#D2691E"
+    }
+  },
+  "content": {
+    "hero_title": "L'Art du Pain depuis Notre Four",
+    "hero_subtitle": "Du grain \u00e0 la table \u2014 la fra\u00eecheur garantie.",
+    "menu_categories": [
+      "Pains",
+      "Viennoiseries",
+      "P\u00e2tisseries"
+    ],
+    "menu_items": [
+      {
+        "name": "Pain au Levain",
+        "description": "Notre pain signature",
+        "price": "$8",
+        "tags": [
+          "Signature",
+          "Bio"
+        ]
+      }
+    ],
+    "testimonials": [
+      {
+        "quote": "Excellent pain !",
+        "author_name": "Marie L.",
+        "author_title": "Cliente",
+        "stars": 5
+      }
+    ]
+  },
+  "composed_at": "2026-06-17T20:56:01.120659"
+}

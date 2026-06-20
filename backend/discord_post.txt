@@ -1,0 +1,52 @@
+🚀 **Zero Employee Studio OS — Notre soumission au Hackathon**
+
+Bonjour à tous ! 👋
+
+Nous sommes ravis de présenter **Zero Employee Studio OS** — une plateforme qui transforme une agence créative traditionnelle en entreprise **100% autonome**.
+
+---
+
+**💡 Le concept**
+Un client donne un brief → Notre OS analyse le projet → Calcule le prix → Gère le paiement Stripe → Produit les livrables créatifs → Livre le résultat final.
+
+**Zéro employé. Résultats professionnels.**
+
+---
+
+**🏗️ Architecture**
+- **4 Agents IA** qui travaillent en chaîne :
+  - 🔍 **Intake Agent** — Analyse le brief client et extrait les besoins structurés
+  - 💰 **Pricing Agent** — Calcule le package optimal et la marge
+  - 💳 **Stripe Agent** — Gère le paiement automatique (Stripe Checkout)
+  - 🎨 **Creative Agent** — Produit les livrables (logo, site web, posts, brand identity)
+
+- **Backend** : Python FastAPI
+- **Frontend** : React + Vite + Tailwind CSS
+- **UI** : Dashboard complet avec dark mode, glassmorphism, animations
+
+---
+
+**📊 Résultats démo**
+- Brief client analysé en < 1 seconde
+- Pricing calculé automatiquement (marge ~96%)
+- Paiement Stripe simulé et confirmé
+- Package créatif complet livré :
+  - 🎨 Logo (SVG + PNG)
+  - 🌐 Site web one-page responsive
+  - 📱 5 posts social media
+  - 🎯 Brand identity complète
+
+---
+
+**🔗 Liens**
+- GitHub : [lien à ajouter]
+- Démo live : http://localhost:5173
+- Page de présentation : frontend/public/presentation.html
+
+**🛠️ Technologies** : Python, FastAPI, React, Vite, Tailwind CSS, Stripe API
+
+---
+
+Merci @NousResearch pour l'incroyable hackathon et @nvidia pour le sponsoring ! 🙏
+
+#HermesAgent #Hackathon #AI #ZeroEmployee

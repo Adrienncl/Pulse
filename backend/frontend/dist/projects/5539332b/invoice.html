@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice ZES-20260617-7267</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f9fafb; color: #111827; line-height: 1.6; }
+        .invoice-container { max-width: 800px; margin: 40px auto; background: white; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #7c3aed, #2563eb); color: white; padding: 40px; }
+        .header-top { display: flex; justify-content: space-between; align-items: flex-start; }
+        .company-name { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; }
+        .company-tagline { font-size: 14px; opacity: 0.8; margin-top: 4px; }
+        .invoice-badge { background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px; font-size: 14px; font-weight: 600; }
+        .invoice-meta { display: flex; justify-content: space-between; margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.2); }
+        .meta-item { text-align: left; }
+        .meta-label { font-size: 12px; opacity: 0.7; text-transform: uppercase; letter-spacing: 1px; }
+        .meta-value { font-size: 16px; font-weight: 600; margin-top: 4px; }
+        .content { padding: 40px; }
+        .section { margin-bottom: 32px; }
+        .section-title { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #6b7280; margin-bottom: 12px; font-weight: 600; }
+        .client-info { background: #f9fafb; padding: 20px; border-radius: 8px; border-left: 4px solid #7c3aed; }
+        .client-name { font-size: 18px; font-weight: 600; color: #111827; }
+        .client-detail { color: #6b7280; font-size: 14px; }
+        table { width: 100%; border-collapse: collapse; }
+        th { background: #f9fafb; padding: 12px; text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #6b7280; font-weight: 600; }
+        th:nth-child(2), th:nth-child(3), th:nth-child(4) { text-align: right; }
+        .totals { display: flex; justify-content: flex-end; margin-top: 24px; }
+        .totals-box { background: #f9fafb; padding: 24px; border-radius: 8px; min-width: 280px; }
+        .total-row { display: flex; justify-content: space-between; padding: 8px 0; }
+        .total-row.grand { border-top: 2px solid #7c3aed; margin-top: 8px; padding-top: 16px; font-size: 20px; font-weight: 700; color: #7c3aed; }
+        .payment-info { background: linear-gradient(135deg, #ecfdf5, #d1fae5); padding: 24px; border-radius: 8px; border: 1px solid #a7f3d0; }
+        .payment-status { display: inline-flex; align-items: center; gap: 8px; background: #10b981; color: white; padding: 8px 16px; border-radius: 20px; font-weight: 600; font-size: 14px; }
+        .payment-status::before { content: "✓"; }
+        .footer { background: #f9fafb; padding: 24px 40px; text-align: center; border-top: 1px solid #e5e7eb; }
+        .footer-text { color: #6b7280; font-size: 13px; }
+        .footer-links { margin-top: 8px; }
+        .footer-links a { color: #7c3aed; text-decoration: none; font-size: 13px; }
+        .footer-links a:hover { text-decoration: underline; }
+        .notes { background: #fffbeb; border: 1px solid #fcd34d; padding: 16px; border-radius: 8px; margin-top: 24px; }
+        .notes-title { font-weight: 600; color: #92400e; margin-bottom: 8px; }
+        .notes-text { color: #78350f; font-size: 14px; }
+        @media print {
+            body { background: white; }
+            .invoice-container { box-shadow: none; margin: 0; }
+            .no-print { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="invoice-container">
+        <div class="header">
+            <div class="header-top">
+                <div>
+                    <div class="company-name">Zero Employee Studio</div>
+                    <div class="company-tagline">AI-Powered Creative Studio</div>
+                </div>
+                <div class="invoice-badge">INVOICE</div>
+            </div>
+            <div class="invoice-meta">
+                <div class="meta-item">
+                    <div class="meta-label">Invoice Number</div>
+                    <div class="meta-value">ZES-20260617-7267</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Issue Date</div>
+                    <div class="meta-value">2026-06-17</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Due Date</div>
+                    <div class="meta-value">2026-06-17</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <div class="section-title">Bill To</div>
+                <div class="client-info">
+                    <div class="client-name">Boulangerie Martin</div>
+                    <div class="client-detail">contact@boulangerie-martin.fr</div>
+                    <div class="client-detail">Boulangerie Martin</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">Services Provided</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Qty</th>
+                            <th>Unit Price</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+        <tr>
+            <td style="padding: 12px; border-bottom: 1px solid #e5e7eb;">Logo Design (SVG)</td>
+            <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; text-align: center;">1</td>
+            <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; text-align: right;">$150.00</td>
+            <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; text-align: right;">$150.00</td>
+        </tr>
+        
+        <tr>
+            <td style="padding: 12px; border-bottom: 1px solid #e5e7eb;">Landing Page (HTML)</td>
+            <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; text-align: center;">1</td>
+            <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; text-align: right;">$250.00</td>
+            <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; text-align: right;">$250.00</td>
+        </tr>
+        
+        <tr>
+            <td style="padding: 12px; border-bottom: 1px solid #e5e7eb;">Social Media Kit</td>
+            <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; text-align: center;">1</td>
+            <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; text-align: right;">$99.00</td>
+            <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; text-align: right;">$99.00</td>
+        </tr>
+        
+                    </tbody>
+                </table>
+                
+                <div class="totals">
+                    <div class="totals-box">
+                        <div class="total-row">
+                            <span>Subtotal</span>
+                            <span>$499.00</span>
+                        </div>
+                        <div class="total-row">
+                            <span>Tax (0%)</span>
+                            <span>$0.00</span>
+                        </div>
+                        <div class="total-row grand">
+                            <span>Total Due</span>
+                            <span>$499.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">Payment Information</div>
+                <div class="payment-info">
+                    <div class="payment-status">Payment Received</div>
+                    <div style="margin-top: 12px; color: #065f46;">
+                        <strong>Payment Method:</strong> Credit Card (Stripe)<br>
+                        <strong>Transaction ID:</strong> cs_test_1827ea3cb7744b70b838f1aa<br>
+                        <strong>Amount Paid:</strong> $499.00 USD
+                    </div>
+                </div>
+            </div>
+            
+            <div class="notes">
+                <div class="notes-title">📋 Order Details</div>
+                <div class="notes-text">
+                    <strong>Package:</strong> Full Brand Package<br>
+                    <strong>Project ID:</strong> 5539332b<br>
+                    <strong>Delivery:</strong> Digital files delivered via email and dashboard
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="footer-text">
+                Thank you for your business! This invoice was generated automatically by Zero Employee Studio.
+            </div>
+            <div class="footer-links">
+                <a href="https://zeroemployee.studio">https://zeroemployee.studio</a> • 
+                <a href="mailto:billing@zeroemployee.studio">billing@zeroemployee.studio</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

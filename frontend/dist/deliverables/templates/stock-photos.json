@@ -1,0 +1,50 @@
+{
+  "restaurant": {
+    "hero": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&h=600&fit=crop",
+    "about": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=500&fit=crop",
+    "team": "https://images.unsplash.com/photo-1577219491135-ce39078697c8?w=600&h=400&fit=crop",
+    "product": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop"
+  },
+  "tech-startup": {
+    "hero": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=600&fit=crop",
+    "about": "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=500&fit=crop",
+    "team": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop",
+    "product": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop"
+  },
+  "retail": {
+    "hero": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&h=600&fit=crop",
+    "about": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=500&fit=crop",
+    "team": "https://images.unsplash.com/photo-1556745757-8d76bdb6984b?w=600&h=400&fit=crop",
+    "product": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&h=400&fit=crop"
+  },
+  "fitness": {
+    "hero": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200&h=600&fit=crop",
+    "about": "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&h=500&fit=crop",
+    "team": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop",
+    "product": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&h=400&fit=crop"
+  },
+  "real-estate": {
+    "hero": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&h=600&fit=crop",
+    "about": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=500&fit=crop",
+    "team": "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&h=400&fit=crop",
+    "product": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop"
+  },
+  "agency": {
+    "hero": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=600&fit=crop",
+    "about": "https://images.unsplash.com/photo-1497215842964-222b430dc094?w=800&h=500&fit=crop",
+    "team": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&h=400&fit=crop",
+    "product": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+  },
+  "education": {
+    "hero": "https://images.unsplash.com/photo-1523050854058-8df90110c8f1?w=1200&h=600&fit=crop",
+    "about": "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&h=500&fit=crop",
+    "team": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=400&fit=crop",
+    "product": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&h=400&fit=crop"
+  },
+  "bakery": {
+    "hero": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1200&h=600&fit=crop",
+    "about": "https://images.unsplash.com/photo-1555507036-ab1f4038024a?w=800&h=500&fit=crop",
+    "team": "https://images.unsplash.com/photo-1556217477-d325251ece38?w=600&h=400&fit=crop",
+    "product": "https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=600&h=400&fit=crop"
+  }
+}

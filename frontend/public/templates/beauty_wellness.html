@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{brand_name}} — {{tagline}}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: { colors: { primary: '{{primary_color}}', secondary: '{{secondary_color}}', accent: '{{accent_color}}' }, fontFamily: { display: ['"Playfair Display"', 'Georgia', 'serif'], body: ['"Inter"', 'system-ui', 'sans-serif'] } } }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: #f5f5f5; }
+        .font-display { font-family: 'Playfair Display', Georgia, serif; }
+        .hero-bg { background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 100%), url('{{hero_image}}') center/cover no-repeat; }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+        .gallery-item:hover img { transform: scale(1.05); }
+        .fade-in { animation: fadeIn 0.8s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+        .gradient-text { background: linear-gradient(135deg, {{primary_color}}, {{accent_color}}); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); }
+    </style>
+</head>
+<body>
+
+    <!-- Nav -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-xl border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="font-display text-2xl font-bold" style="color: {{primary_color}}">{{brand_name}}</a>
+            <div class="hidden md:flex items-center gap-8 text-sm text-gray-400">
+                <a href="#about" class="hover:text-white transition">About</a>
+                <a href="#services" class="hover:text-white transition">Services</a>
+                <a href="#pricing" class="hover:text-white transition">Pricing</a>
+                <a href="#gallery" class="hover:text-white transition">Gallery</a>
+                <a href="#contact" class="hover:text-white transition">Contact</a>
+                <a href="#book" class="px-6 py-2.5 rounded-full font-medium text-white hover:opacity-90 transition" style="background: {{primary_color}}">Book Now</a>
+            </div>
+            <button class="md:hidden text-white" onclick="document.querySelector('.mobile-menu').classList.toggle('hidden')">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+        </div>
+        <div class="mobile-menu hidden md:hidden px-6 pb-4 space-y-3 bg-[#0a0a0a]/95">
+            <a href="#about" class="block text-gray-400 hover:text-white py-2">About</a>
+            <a href="#services" class="block text-gray-400 hover:text-white py-2">Services</a>
+            <a href="#pricing" class="block text-gray-400 hover:text-white py-2">Pricing</a>
+            <a href="#gallery" class="block text-gray-400 hover:text-white py-2">Gallery</a>
+            <a href="#contact" class="block text-gray-400 hover:text-white py-2">Contact</a>
+            <a href="#book" class="block px-6 py-3 rounded-full text-center font-medium text-white" style="background: {{primary_color}}">Book Now</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero-bg min-h-screen flex items-center justify-center relative">
+        <div class="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/60 via-transparent to-[#0a0a0a]"></div>
+        <div class="relative z-10 text-center max-w-4xl mx-auto px-6 fade-in">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs font-medium tracking-wider uppercase mb-8" style="color: {{primary_color}}">
+                <span class="w-1.5 h-1.5 rounded-full animate-pulse" style="background: {{primary_color}}"></span>
+                {{hero_subtitle}}
+            </div>
+            <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-[1.05] tracking-tight">{{hero_title}}</h1>
+            <p class="text-lg md:text-xl text-gray-400 mb-10 max-w-3xl mx-auto leading-relaxed">{{hero_description}}</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#book" class="px-8 py-4 rounded-full font-semibold text-lg text-white hover:opacity-90 transition shadow-2xl" style="background: {{primary_color}}; box-shadow: 0 0 40px {{primary_color}}40">Book Appointment</a>
+                <a href="#services" class="px-8 py-4 border border-white/10 text-white rounded-full font-semibold text-lg hover:bg-white/5 transition">View Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-28 md:py-36 px-6">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div class="fade-in">
+                <span class="text-xs font-medium tracking-[0.2em] uppercase mb-4 block" style="color: {{primary_color}}">About</span>
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 leading-tight">{{about_title}}</h2>
+                <p class="text-gray-400 text-lg leading-relaxed mb-6">{{about_text}}</p>
+                <p class="text-gray-500 leading-relaxed">{{about_text_2}}</p>
+                <div class="flex gap-8 mt-8">
+                    <div><p class="text-3xl font-bold gradient-text">{{years_experience}}+</p><p class="text-sm text-gray-500">Years Experience</p></div>
+                    <div><p class="text-3xl font-bold gradient-text">1K+</p><p class="text-sm text-gray-500">Happy Clients</p></div>
+                </div>
+            </div>
+            <div class="relative fade-in">
+                <img src="{{about_image}}" alt="{{brand_name}}" class="rounded-2xl w-full h-[500px] object-cover shadow-2xl shadow-black/50">
+                <div class="absolute -bottom-5 -right-5 rounded-2xl p-6 shadow-2xl backdrop-blur-md" style="background: {{primary_color}}dd">
+                    <p class="text-2xl font-bold text-white">{{years_experience}}+</p>
+                    <p class="text-sm text-white/80">Years of Excellence</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-28 md:py-36 px-6" style="background: #111">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <span class="text-xs font-medium tracking-[0.2em] uppercase mb-4 block" style="color: {{primary_color}}">Services</span>
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">{{services_title}}</h2>
+                <p class="text-gray-500 text-lg max-w-2xl mx-auto">{{services_subtitle}}</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                {{#services}}
+                <div class="card-hover rounded-2xl p-6 border transition-all duration-300 text-center" style="background: #181818; border-color: #222">
+                    <div class="text-4xl mb-5">{{icon}}</div>
+                    <h3 class="font-display text-xl font-semibold mb-3">{{name}}</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-4">{{description}}</p>
+                    <p class="font-bold text-lg" style="color: {{primary_color}}">{{price}}</p>
+                    <p class="text-xs text-gray-600">{{duration}}</p>
+                </div>
+                {{/services}}
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="py-28 md:py-36 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <span class="text-xs font-medium tracking-[0.2em] uppercase mb-4 block" style="color: {{primary_color}}">Gallery</span>
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">{{gallery_title}}</h2>
+                <p class="text-gray-500 text-lg max-w-2xl mx-auto">{{gallery_subtitle}}</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                {{#gallery_images}}
+                <div class="gallery-item rounded-xl overflow-hidden">
+                    <img src="{{url}}" alt="{{alt}}" class="w-full h-64 object-cover transition-all duration-500">
+                </div>
+                {{/gallery_images}}
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-28 md:py-36 px-6" style="background: #111">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <span class="text-xs font-medium tracking-[0.2em] uppercase mb-4 block" style="color: {{primary_color}}">Testimonials</span>
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">{{testimonial_title}}</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                {{#testimonials}}
+                <div class="rounded-2xl p-6 border text-center" style="background: #181818; border-color: #222">
+                    <div class="text-3xl mb-4" style="color: {{primary_color}}">"</div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">{{quote}}</p>
+                    <p class="font-semibold text-sm">{{author_name}}</p>
+                    <p class="text-xs text-gray-500">{{author_title}}</p>
+                </div>
+                {{/testimonials}}
+            </div>
+        </div>
+    </section>
+
+    <!-- Book / CTA -->
+    <section id="book" class="py-28 md:py-36 px-6">
+        <div class="max-w-4xl mx-auto text-center fade-in">
+            <span class="text-xs font-medium tracking-[0.2em] uppercase mb-4 block" style="color: {{primary_color}}">Book</span>
+            <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">{{booking_title}}</h2>
+            <p class="text-gray-500 text-lg max-w-2xl mx-auto mb-10">{{booking_text}}</p>
+            <a href="#contact" class="inline-flex px-10 py-4 rounded-full font-semibold text-lg text-white hover:opacity-90 transition shadow-2xl" style="background: {{primary_color}}; box-shadow: 0 0 40px {{primary_color}}30">Schedule Now</a>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-28 md:py-36 px-6" style="background: #111">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <span class="text-xs font-medium tracking-[0.2em] uppercase mb-4 block" style="color: {{primary_color}}">Contact</span>
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">{{contact_title}}</h2>
+                <p class="text-gray-500 text-lg max-w-2xl mx-auto">{{contact_text}}</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="rounded-2xl p-6 border text-center" style="background: #181818; border-color: #222">
+                    <div class="text-3xl mb-4">📍</div>
+                    <p class="text-sm font-semibold mb-1">Address</p>
+                    <p class="text-sm text-gray-500">{{contact_address}}</p>
+                </div>
+                <div class="rounded-2xl p-6 border text-center" style="background: #181818; border-color: #222">
+                    <div class="text-3xl mb-4">📞</div>
+                    <p class="text-sm font-semibold mb-1">Phone</p>
+                    <p class="text-sm text-gray-500">{{contact_phone}}</p>
+                </div>
+                <div class="rounded-2xl p-6 border text-center" style="background: #181818; border-color: #222">
+                    <div class="text-3xl mb-4">✉️</div>
+                    <p class="text-sm font-semibold mb-1">Email</p>
+                    <p class="text-sm text-gray-500">{{contact_email}}</p>
+                </div>
+                <div class="rounded-2xl p-6 border text-center" style="background: #181818; border-color: #222">
+                    <div class="text-3xl mb-4">🕐</div>
+                    <p class="text-sm font-semibold mb-1">Hours</p>
+                    <p class="text-sm text-gray-500">{{contact_hours}}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 py-12 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="text-center md:text-left">
+                <p class="font-display text-xl font-bold" style="color: {{primary_color}}">{{brand_name}}</p>
+                <p class="text-sm text-gray-600 mt-2">{{footer_description}}</p>
+            </div>
+            <div class="flex items-center gap-4 text-xs text-gray-600">
+                <span>© 2026 {{brand_name}}</span>
+                <span>·</span>
+                <span>Crafted by Zero Employee Studio</span>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

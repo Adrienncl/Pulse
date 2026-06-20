@@ -1,0 +1,11 @@
+{
+  "client_name": "Boulangerie Martin",
+  "business_type": "Boulangerie artisanale",
+  "brief": "Nouvelle boulangerie artisanale qui veut attirer une clientèle jeune et branchée. Nous créons du pain au levain naturel et des viennoiseries bio. Notre slogan : 'Le goût du vrai'. Nous avons besoin d'une présence digitale complète pour l'ouverture dans 3 semaines.",
+  "client_email": "contact@boulangerie-martin.fr",
+  "needs": ["website", "logo", "social_media", "branding"],
+  "budget_range": "500-1500",
+  "timeline": "2 semaines",
+  "style_preferences": ["moderne", "authentique", "chaleureux"],
+  "target_audience": "25-45 ans, urbains, passionnés de gastronomie"
+}

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 140" width="400" height="140">
+  <!--
+    BADGE / SHIELD LOGO TEMPLATE
+    =============================
+    Customization:
+      1. Replace "#1A1A2E" with your primary/brand color
+      2. Replace "#E94560" with your accent/highlight color
+      3. Replace "#FFFFFF" with your text color
+      4. Replace "BRAND" with your brand name
+      5. Replace tagline or remove the <text> element below
+  -->
+  <defs>
+    <style>
+      .badge-bg { fill: #1A1A2E; }
+      .badge-accent { fill: #E94560; }
+      .badge-text { fill: #FFFFFF; font-family: 'Inter', 'Segoe UI', system-ui, sans-serif; }
+      .badge-tagline { fill: #CCCCCC; font-family: 'Inter', 'Segoe UI', system-ui, sans-serif; }
+      .badge-border { fill: none; stroke: #E94560; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <!-- Shield / badge shape -->
+  <path d="M70 15 L120 15 Q130 15 130 25 L130 75 Q130 100 95 115 Q60 100 60 75 L60 25 Q60 15 70 15 Z"
+        class="badge-bg" />
+  <path d="M70 15 L120 15 Q130 15 130 25 L130 75 Q130 100 95 115 Q60 100 60 75 L60 25 Q60 15 70 15 Z"
+        class="badge-border" />
+
+  <!-- Inner accent stripe -->
+  <rect x="62" y="30" width="66" height="4" rx="2" class="badge-accent" />
+
+  <!-- Star icon inside badge -->
+  <polygon points="95,50 101,62 115,64 105,74 107,88 95,82 83,88 85,74 75,64 89,62"
+           class="badge-accent" />
+
+  <!-- Brand Name -->
+  <text x="155" y="62" class="badge-text" font-size="32" font-weight="800" letter-spacing="2" dominant-baseline="central">
+    YOUR BRAND
+  </text>
+
+  <!-- Tagline -->
+  <text x="155" y="88" class="badge-tagline" font-size="12" font-weight="400" letter-spacing="1.5">
+    ESTABLISHED 2026
+  </text>
+</svg>

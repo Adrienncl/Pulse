@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" width="400" height="100">
+  <!--
+    CLEAN WORDMARK LOGO TEMPLATE
+    =============================
+    Customization:
+      1. Replace "#6C5CE7" with your primary brand color
+      2. Replace "#2D3436" with your text color
+      3. Replace "yourbrand" with your brand name (lowercase works best)
+      4. Replace ".com" with your domain extension or tagline
+  -->
+  <defs>
+    <style>
+      .wordmark-primary { fill: #6C5CE7; }
+      .wordmark-text { fill: #2D3436; font-family: 'Inter', 'Segoe UI', system-ui, sans-serif; }
+      .wordmark-dot { fill: #6C5CE7; }
+      .wordmark-line { stroke: #6C5CE7; stroke-width: 2; stroke-linecap: round; }
+    </style>
+  </defs>
+
+  <!-- Decorative left accent bar -->
+  <line x1="10" y1="20" x2="10" y2="80" class="wordmark-line" />
+
+  <!-- Subtle geometric accent -->
+  <rect x="20" y="40" width="24" height="24" rx="4" class="wordmark-primary" opacity="0.15" />
+  <rect x="24" y="36" width="24" height="24" rx="4" class="wordmark-primary" opacity="0.3" />
+  <rect x="28" y="32" width="24" height="24" rx="4" class="wordmark-primary" opacity="1" />
+
+  <!-- Brand Name -->
+  <text x="68" y="52" class="wordmark-text" font-size="38" font-weight="300" letter-spacing="-0.5" dominant-baseline="central">
+    your
+  </text>
+  <text x="140" y="52" class="wordmark-text" font-size="38" font-weight="700" letter-spacing="-0.5" dominant-baseline="central">
+    brand
+  </text>
+  <circle cx="225" cy="52" r="4" class="wordmark-dot" />
+
+  <!-- Tagline / Domain -->
+  <text x="68" y="76" class="wordmark-text" font-size="11" font-weight="400" letter-spacing="3" opacity="0.5">
+    CREATIVE STUDIO
+  </text>
+</svg>

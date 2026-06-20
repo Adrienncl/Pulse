@@ -1,0 +1,10 @@
+Backup #1: Thu Jun 18 07:55:16 UTC 2026
+File: zero-employee-studio-backup-20260618-0755.tar.gz
+Size: 31MB (excluded node_modules, venv)
+Location: ~/projects/
+
+Backup #2: Fri Jun 19 00:46:04 UTC 2026 (avant pivot)
+File: /home/ubuntu/backups/zero-employee-studio-2026-06-19_004604.tar.gz
+Size: 5.5MB (excluded node_modules, venv, __pycache__, *.pyc)
+Location: /home/ubuntu/backups/
+Note: Version stable avant pivot vers nouveau produit. 816 fichiers.

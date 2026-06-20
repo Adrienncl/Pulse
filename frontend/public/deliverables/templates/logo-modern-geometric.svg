@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="400" height="120">
+  <!--
+    MODERN GEOMETRIC LOGO TEMPLATE
+    ===============================
+    Customization:
+      1. Replace "#000000" with your primary brand color
+      2. Replace "#0052CC" with your secondary/accent color
+      3. Replace "#666666" with your text color
+      4. Replace "YourBrand" with your brand name
+      5. Replace tagline or remove the <text> element below
+  -->
+  <defs>
+    <!-- Change these CSS variables for quick color theming -->
+    <style>
+      .logo-primary { fill: #0052CC; }
+      .logo-secondary { fill: #000000; }
+      .logo-text { fill: #333333; font-family: 'Inter', 'Segoe UI', system-ui, sans-serif; }
+      .logo-tagline { fill: #666666; font-family: 'Inter', 'Segoe UI', system-ui, sans-serif; }
+    </style>
+    <!-- Gradient option (uncomment to use) -->
+    <!-- <linearGradient id="brandGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0052CC;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7928CA;stop-opacity:1" />
+    </linearGradient> -->
+  </defs>
+
+  <!-- Icon: Overlapping geometric circles -->
+  <circle cx="48" cy="52" r="32" class="logo-primary" opacity="0.85" />
+  <circle cx="72" cy="52" r="32" class="logo-secondary" opacity="0.25" />
+
+  <!-- Brand Name -->
+  <text x="120" y="52" class="logo-text" font-size="36" font-weight="700" dominant-baseline="central">
+    YourBrand
+  </text>
+
+  <!-- Tagline -->
+  <text x="120" y="78" class="logo-tagline" font-size="13" font-weight="400" letter-spacing="0.5">
+    Innovation Delivered
+  </text>
+</svg>

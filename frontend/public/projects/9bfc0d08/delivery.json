@@ -1,0 +1,144 @@
+{
+  "project_id": "9bfc0d08",
+  "brand_name": "Boulangerie Martin",
+  "status": "delivered",
+  "website_url": "/api/files/projects/9bfc0d08/preview.html",
+  "brand_kit": {
+    "logo": "/api/files/projects/9bfc0d08/logo.svg",
+    "colors": {
+      "primary": "#8B4513",
+      "secondary": "#F5DEB3",
+      "accent": "#D2691E"
+    },
+    "typography": "artisanal typography with vintage charm",
+    "voice": "warm, authentic, artisanal",
+    "guidelines": "/api/files/projects/9bfc0d08/brand-guidelines.html"
+  },
+  "social_posts": {
+    "total_posts": 5,
+    "platforms": [
+      "TikTok",
+      "Facebook",
+      "Instagram"
+    ],
+    "posts": [
+      {
+        "platform": "Instagram",
+        "caption": "Le four tourne \u00e0 Boulangerie Martin! \ud83e\udd50\u2728 Fra\u00eecheur du jour, chaque matin.",
+        "image_prompt": "Fresh pastries coming out of oven, warm golden light, artisan bakery",
+        "hashtags": [
+          "#BoulangerieArtisanale",
+          "#Croissants",
+          "#PainFrais"
+        ],
+        "brand_name": "Boulangerie Martin",
+        "optimal_posting_time": "11:00 AM - 1:00 PM or 7:00 PM - 9:00 PM",
+        "engagement_tip": "Use 5-10 relevant hashtags. Engage with comments within 1 hour."
+      },
+      {
+        "platform": "TikTok",
+        "caption": "POV: Tu rentres dans Boulangerie Martin et tu sens le pain frais \ud83c\udf5e\ud83d\udd25",
+        "image_prompt": "Quick bakery tour, fresh bread, warm atmosphere",
+        "hashtags": [
+          "#BoulangerieTikTok",
+          "#PainAuLevain",
+          "#Artisanat"
+        ],
+        "brand_name": "Boulangerie Martin",
+        "optimal_posting_time": "7:00 PM - 9:00 PM",
+        "engagement_tip": "Hook viewers in first 3 seconds. Use trending sounds."
+      },
+      {
+        "platform": "Facebook",
+        "caption": "Chaque matin, Boulangerie Martin vous accueille avec le meilleur pain artisanal de la r\u00e9gion. Venez nous voir! \ud83c\udf3e",
+        "image_prompt": "Warm bakery interior, display of fresh bread and pastries",
+        "hashtags": [
+          "#Boulangerie",
+          "#PainArtisanal",
+          "#Local"
+        ],
+        "brand_name": "Boulangerie Martin",
+        "optimal_posting_time": "1:00 PM - 4:00 PM",
+        "engagement_tip": "Ask questions to encourage comments. Share during peak hours."
+      },
+      {
+        "platform": "Instagram",
+        "caption": "Le four tourne \u00e0 Boulangerie Martin! \ud83e\udd50\u2728 Fra\u00eecheur du jour, chaque matin.",
+        "image_prompt": "Fresh pastries coming out of oven, warm golden light, artisan bakery",
+        "hashtags": [
+          "#BoulangerieArtisanale",
+          "#Croissants",
+          "#PainFrais"
+        ],
+        "brand_name": "Boulangerie Martin",
+        "optimal_posting_time": "7:00 AM - 9:00 AM",
+        "engagement_tip": "Show the baking process. Use warm, inviting visuals."
+      },
+      {
+        "platform": "TikTok",
+        "caption": "POV: Tu rentres dans Boulangerie Martin et tu sens le pain frais \ud83c\udf5e\ud83d\udd25",
+        "image_prompt": "Quick bakery tour, fresh bread, warm atmosphere",
+        "hashtags": [
+          "#BoulangerieTikTok",
+          "#PainAuLevain",
+          "#Artisanat"
+        ],
+        "brand_name": "Boulangerie Martin",
+        "optimal_posting_time": "6:00 AM - 8:00 AM",
+        "engagement_tip": "Show the crust cracking. ASMR bread sounds."
+      }
+    ]
+  },
+  "finance": {
+    "revenue": 499,
+    "costs": {
+      "domain": 9.98,
+      "hosting": 20,
+      "ssl": 0,
+      "email": 1,
+      "analytics": 0,
+      "cdn": 0,
+      "stripe_fees": 14.77
+    },
+    "total_costs": 45.75,
+    "net_profit": 453.25,
+    "margin_percent": 90.83,
+    "human_employees": 0,
+    "status": "Autonomous delivery complete",
+    "summary": {
+      "revenue_display": "$499.00",
+      "costs_display": "$45.75",
+      "profit_display": "$453.25",
+      "margin_display": "90.8%",
+      "employees_display": "0 (Zero)"
+    }
+  },
+  "files": [
+    {
+      "name": "preview.html",
+      "path": "/api/files/projects/9bfc0d08/preview.html",
+      "type": "website",
+      "size_kb": 24.6
+    },
+    {
+      "name": "project.json",
+      "path": "/api/files/projects/9bfc0d08/project.json",
+      "type": "data",
+      "size_kb": 5.5
+    },
+    {
+      "name": "logo.svg",
+      "path": "/api/files/projects/9bfc0d08/logo.svg",
+      "type": "logo",
+      "size_kb": 2.0
+    },
+    {
+      "name": "brand-guidelines.html",
+      "path": "/api/files/projects/9bfc0d08/brand-guidelines.html",
+      "type": "guidelines",
+      "size_kb": 4.0
+    }
+  ],
+  "deliverables_count": 4,
+  "message": "Complete delivery package for Boulangerie Martin \u2014 website, brand kit, social assets, and finance summary."
+}
