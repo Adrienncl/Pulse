@@ -6,7 +6,7 @@ const API = '/api'
    DESIGN SYSTEM
    ═══════════════════════════════════════════════════════════ */
 
-const scoreColor = (v) => v >= 70 ? '#059669' : v >= 40 ? '#d97706' : '#dc2626'
+const scoreColor = (v) => v >= 70 ? '#059669' : v >= 40 ? '#0d9488' : '#dc2626'
 const scoreStatus = (v) => v >= 70 ? 'Strong' : v >= 40 ? 'Needs Attention' : 'Critical'
 
 /* ── Gauge ── */
@@ -16,12 +16,12 @@ function Gauge({ v = 72, size = 80 }) {
   return (
     <div className="relative flex-shrink-0" style={{ width: size, height: size }}>
       <svg width={size} height={size} className="transform -rotate-90">
-        <circle cx={cx} cy={cy} r={r} fill="none" stroke="#e8ddd0" strokeWidth={sw} />
+        <circle cx={cx} cy={cy} r={r} fill="none" stroke="#e2e8f0" strokeWidth={sw} />
         <circle cx={cx} cy={cy} r={r} fill="none" stroke={col} strokeWidth={sw}
           strokeDasharray={c} strokeDashoffset={c - (pct / 100) * c}
           strokeLinecap="round" className="transition-all duration-1000" />
       </svg>
-      <span className="absolute inset-0 flex items-center justify-center font-bold tracking-tight" style={{ fontSize: size * 0.3, color: '#2d1f14', marginTop: 2 }}>{v}</span>
+      <span className="absolute inset-0 flex items-center justify-center font-bold tracking-tight" style={{ fontSize: size * 0.3, color: '#1e293b', marginTop: 2 }}>{v}</span>
     </div>
   )
 }
@@ -46,13 +46,13 @@ const I = ({ n, s = 18, c = '' }) => {
 /* ── Logo ── */
 const Logo = ({ size = 20 }) => (
   <svg width={size} height={size} viewBox="0 0 28 28" fill="none" className="flex-shrink-0">
-    <circle cx="14" cy="14" r="2.5" fill="#d97706">
+    <circle cx="14" cy="14" r="2.5" fill="#0d9488">
       <animate attributeName="r" values="2.5;3.2;2.5" dur="2.5s" repeatCount="indefinite" />
     </circle>
-    <path d="M14 4.5A9.5 9.5 0 0 1 23.5 14" stroke="#d97706" strokeWidth="2.5" strokeLinecap="round" opacity="0.5">
+    <path d="M14 4.5A9.5 9.5 0 0 1 23.5 14" stroke="#0d9488" strokeWidth="2.5" strokeLinecap="round" opacity="0.5">
       <animate attributeName="opacity" values="0.5;0.2;0.5" dur="3.5s" repeatCount="indefinite" />
     </path>
-    <path d="M14 2A12 12 0 0 1 26 14" stroke="#d97706" strokeWidth="2" strokeLinecap="round" opacity="0.25">
+    <path d="M14 2A12 12 0 0 1 26 14" stroke="#0d9488" strokeWidth="2" strokeLinecap="round" opacity="0.25">
       <animate attributeName="opacity" values="0.25;0.1;0.25" dur="4.5s" repeatCount="indefinite" />
     </path>
   </svg>
@@ -69,20 +69,20 @@ function ScanHistoryCard({ scan, isActive, onClick }) {
       className="w-full rounded-xl p-4 text-left transition-all duration-200"
       style={{
         background: isActive ? '#ffffff' : 'rgba(255,255,255,0.5)',
-        border: isActive ? '1px solid rgba(217, 119, 6, 0.15)' : '1px solid rgba(217, 119, 6, 0.04)',
+        border: isActive ? '1px solid rgba(13, 148, 136, 0.15)' : '1px solid rgba(13, 148, 136, 0.04)',
         boxShadow: isActive ? '0 1px 3px rgba(0,0,0,0.04)' : 'none',
       }}
     >
       <div className="flex items-center gap-3">
         <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
           style={{
-            background: sc >= 70 ? 'rgba(5, 150, 105, 0.08)' : sc >= 40 ? 'rgba(217, 119, 6, 0.08)' : 'rgba(220, 38, 38, 0.08)',
+            background: sc >= 70 ? 'rgba(5, 150, 105, 0.08)' : sc >= 40 ? 'rgba(13, 148, 136, 0.08)' : 'rgba(220, 38, 38, 0.08)',
           }}>
           <I n="globe" s={16} c={`text-[${scoreColor(sc)}]`} />
         </div>
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2">
-            <span className="text-sm font-medium truncate" style={{ color: '#2d1f14' }}>{scan.domain || 'Unknown'}</span>
+            <span className="text-sm font-medium truncate" style={{ color: '#1e293b' }}>{scan.domain || 'Unknown'}</span>
             <span className="text-[10px] font-bold tabular-nums" style={{ color: scoreColor(sc) }}>{sc}/100</span>
             {scan.paid && (
               <span className="px-1.5 py-0.5 rounded text-[8px] font-medium uppercase tracking-wider"
@@ -91,14 +91,14 @@ function ScanHistoryCard({ scan, isActive, onClick }) {
               </span>
             )}
           </div>
-          <div className="text-[10px] mt-0.5" style={{ color: '#a69484' }}>
+          <div className="text-[10px] mt-0.5" style={{ color: '#64748b' }}>
             {scan.timestamp ? new Date(scan.timestamp).toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }) : 'Recent'}
           </div>
         </div>
         <div className="w-6 h-6 rounded-full flex items-center justify-center" style={{
-          background: isActive ? 'rgba(217, 119, 6, 0.08)' : 'transparent',
+          background: isActive ? 'rgba(13, 148, 136, 0.08)' : 'transparent',
         }}>
-          <I n="arrow" s={10} c={`text-[${isActive ? '#d97706' : '#d5c8bc'}]`} />
+          <I n="arrow" s={10} c={`text-[${isActive ? '#0d9488' : '#cbd5e1'}]`} />
         </div>
       </div>
     </button>
@@ -157,25 +157,21 @@ export default function ClientDashboardPage({ onNavigate, initialResult, initial
   const sc = selectedScan?.score || 0
 
   return (
-    <div className="min-h-screen antialiased" style={{ backgroundColor: '#f5f0e8', color: '#2d1f14' }}>
-
-      {/* ═══ NAV ═══ */}
-      <nav className="fixed top-0 left-0 right-0 z-50" style={{
-        background: 'rgba(245, 240, 232, 0.85)', backdropFilter: 'blur(20px) saturate(1.4)',
-        borderBottom: '1px solid rgba(217, 119, 6, 0.06)'
+    <div className="min-h-screen antialiased" style={{ backgroundColor: '#f8fafc', color: '#1e293b' }}>
+        {/* ═══ NAV ═══ */}
+        <nav className="fixed top-0 left-0 right-0 z-50" style={{
+          background: 'rgba(255, 255, 255, 0.9)', backdropFilter: 'blur(20px) saturate(1.4)',
+          borderBottom: '1px solid rgba(13, 148, 136, 0.06)'
       }}>
         <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
             <Logo size={20} />
-            <span className="text-sm font-semibold tracking-tight" style={{ color: '#2d1f14' }}>
-              RankFix <span style={{ color: '#a69484' }}>Agent</span>
-            </span>
           </div>
           <div className="flex items-center gap-3">
             {isLoggedIn && (
-              <div className="flex items-center gap-2 text-xs" style={{ color: '#a69484' }}>
+              <div className="flex items-center gap-2 text-xs" style={{ color: '#64748b' }}>
                 <div className="w-6 h-6 rounded-full flex items-center justify-center text-[9px] font-bold"
-                  style={{ background: 'rgba(217, 119, 6, 0.1)', color: '#d97706' }}>
+                  style={{ background: 'rgba(13, 148, 136, 0.1)', color: '#0d9488' }}>
                   {(userName || 'U')[0].toUpperCase()}
                 </div>
                 <span className="hidden sm:inline">{userEmail}</span>
@@ -185,18 +181,18 @@ export default function ClientDashboardPage({ onNavigate, initialResult, initial
             )}
             <span className="hidden sm:inline-flex items-center gap-1.5 text-[10px] font-medium px-2.5 py-1 rounded-full"
               style={{
-                background: 'rgba(217, 119, 6, 0.06)',
-                border: '1px solid rgba(217, 119, 6, 0.08)',
-                color: '#a69484'
+                background: 'rgba(13, 148, 136, 0.06)',
+                border: '1px solid rgba(13, 148, 136, 0.08)',
+                color: '#64748b'
               }}>
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
               Free Plan
             </span>
             <button onClick={() => onNavigate('landing')}
               className="flex items-center gap-1.5 text-xs font-medium transition-colors"
-              style={{ color: '#a69484' }}
-              onMouseOver={e => e.currentTarget.style.color = '#d97706'}
-              onMouseOut={e => e.currentTarget.style.color = '#a69484'}>
+              style={{ color: '#64748b' }}
+              onMouseOver={e => e.currentTarget.style.color = '#0d9488'}
+              onMouseOut={e => e.currentTarget.style.color = '#64748b'}>
               <I n="sparkles" s={12} />
               New Scan
             </button>
@@ -209,19 +205,19 @@ export default function ClientDashboardPage({ onNavigate, initialResult, initial
 
           {loading ? (
             <div className="flex items-center justify-center h-48">
-              <I n="spin" s={24} c="text-amber-500" />
+              <I n="spin" s={24} c="text-[#0d9488]" />
             </div>
           ) : scans.length === 0 && !selectedScan ? (
             /* ═══ EMPTY STATE ═══ */
             <div className="text-center py-20 animate-fadeUp">
               <div className="w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center"
-                style={{ background: 'rgba(217, 119, 6, 0.06)' }}>
-                <I n="search" s={24} c="text-[#a69484]" />
+                style={{ background: 'rgba(13, 148, 136, 0.06)' }}>
+                <I n="search" s={24} c="text-[#64748b]" />
               </div>
-              <h2 className="text-lg font-semibold mb-1" style={{ color: '#2d1f14' }}>
+              <h2 className="text-lg font-semibold mb-1" style={{ color: '#1e293b' }}>
                 No scans yet
               </h2>
-              <p className="text-sm mb-6" style={{ color: '#a69484' }}>
+              <p className="text-sm mb-6" style={{ color: '#64748b' }}>
                 Run your first AI visibility audit to see how your site performs
               </p>
               <button onClick={() => onNavigate('landing')}
@@ -236,14 +232,14 @@ export default function ClientDashboardPage({ onNavigate, initialResult, initial
               <div className="lg:col-span-1">
                 <div className="rounded-2xl bg-white p-4" style={{
                   boxShadow: '0 1px 2px rgba(0,0,0,0.03), 0 4px 12px rgba(0,0,0,0.04)',
-                  border: '1px solid rgba(217, 119, 6, 0.05)'
+                  border: '1px solid rgba(13, 148, 136, 0.05)'
                 }}>
                   <div className="flex items-center justify-between mb-3">
-                    <h3 className="text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5" style={{ color: '#a69484' }}>
+                    <h3 className="text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5" style={{ color: '#64748b' }}>
                       <I n="history" s={12} />
                       Scan History
                     </h3>
-                    <span className="text-[10px] font-medium" style={{ color: '#d5c8bc' }}>{scans.length}</span>
+                    <span className="text-[10px] font-medium" style={{ color: '#cbd5e1' }}>{scans.length}</span>
                   </div>
                   <div className="space-y-2">
                     {scans.map((scan, i) => (
@@ -256,7 +252,7 @@ export default function ClientDashboardPage({ onNavigate, initialResult, initial
                     ))}
                   </div>
                   {scans.length === 0 && (
-                    <div className="text-center py-6 text-xs" style={{ color: '#d5c8bc' }}>
+                    <div className="text-center py-6 text-xs" style={{ color: '#cbd5e1' }}>
                       No scans yet. Run one from the home page.
                     </div>
                   )}
@@ -264,19 +260,19 @@ export default function ClientDashboardPage({ onNavigate, initialResult, initial
 
                 {/* ═══ Subscription Card ═══ */}
                 <div className="mt-4 rounded-2xl p-4" style={{
-                  background: 'rgba(217, 119, 6, 0.04)',
-                  border: '1px solid rgba(217, 119, 6, 0.08)'
+                  background: 'rgba(13, 148, 136, 0.04)',
+                  border: '1px solid rgba(13, 148, 136, 0.08)'
                 }}>
                   <div className="flex items-center gap-2 mb-2">
-                    <I n="card" s={14} c="text-[#d97706]" />
-                    <span className="text-xs font-semibold" style={{ color: '#2d1f14' }}>Plan</span>
+                    <I n="card" s={14} c="text-[#0d9488]" />
+                    <span className="text-xs font-semibold" style={{ color: '#1e293b' }}>Plan</span>
                   </div>
-                  <p className="text-[10px] mb-3" style={{ color: '#a69484' }}>
-                    You're on the <strong style={{ color: '#2d1f14' }}>Free</strong> plan. Upgrade for weekly monitoring & full reports.
+                  <p className="text-[10px] mb-3" style={{ color: '#64748b' }}>
+                    You're on the <strong style={{ color: '#1e293b' }}>Free</strong> plan. Upgrade for weekly monitoring & full reports.
                   </p>
                   <button onClick={() => onNavigate('results')}
                     className="w-full py-2.5 rounded-xl text-xs font-semibold text-white transition-all"
-                    style={{ background: '#d97706' }}
+                    style={{ background: '#0d9488' }}
                     onMouseOver={e => e.currentTarget.style.opacity = '0.9'}
                     onMouseOut={e => e.currentTarget.style.opacity = '1'}>
                     Upgrade — $19/mo
@@ -291,17 +287,17 @@ export default function ClientDashboardPage({ onNavigate, initialResult, initial
                     {/* Score + Summary */}
                     <div className="rounded-2xl bg-white p-6 sm:p-7" style={{
                       boxShadow: '0 1px 2px rgba(0,0,0,0.03), 0 4px 16px rgba(0,0,0,0.04)',
-                      border: '1px solid rgba(217, 119, 6, 0.05)'
+                      border: '1px solid rgba(13, 148, 136, 0.05)'
                     }}>
                       <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-5">
                         <Gauge v={sc} size={88} />
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2 mb-1">
-                            <h1 className="text-lg font-bold tracking-tight" style={{ color: '#2d1f14' }}>
+                            <h1 className="text-lg font-bold tracking-tight" style={{ color: '#1e293b' }}>
                               {selectedScan.domain || 'Website'}
                             </h1>
                             <span className="text-[9px] font-medium px-1.5 py-0.5 rounded" style={{
-                              background: sc >= 70 ? 'rgba(5, 150, 105, 0.08)' : sc >= 40 ? 'rgba(217, 119, 6, 0.08)' : 'rgba(220, 38, 38, 0.08)',
+                              background: sc >= 70 ? 'rgba(5, 150, 105, 0.08)' : sc >= 40 ? 'rgba(13, 148, 136, 0.08)' : 'rgba(220, 38, 38, 0.08)',
                               color: scoreColor(sc)
                             }}>{scoreStatus(sc)}</span>
                             {selectedScan.paid && (
@@ -311,11 +307,11 @@ export default function ClientDashboardPage({ onNavigate, initialResult, initial
                               </span>
                             )}
                           </div>
-                          <div className="text-xs leading-relaxed" style={{ color: '#6b5a4e' }}>
-                            {selectedScan.estimated_impact?.visibility || 'AI visibility audit completed.'}
+                          <div className="text-xs leading-relaxed" style={{ color: '#475569' }}>
+                            {selectedScan.estimated_impact?.description || 'Audit completed.'}
                           </div>
                           {selectedScan.timestamp && (
-                            <div className="text-[10px] mt-2" style={{ color: '#d5c8bc' }}>
+                            <div className="text-[10px] mt-2" style={{ color: '#cbd5e1' }}>
                               Scanned {new Date(selectedScan.timestamp).toLocaleString()}
                             </div>
                           )}
@@ -326,8 +322,8 @@ export default function ClientDashboardPage({ onNavigate, initialResult, initial
                       {selectedScan.pillars && (
                         <div className="space-y-2.5">
                           <div className="flex items-center gap-2 mb-2">
-                            <span className="text-[9px] font-semibold uppercase tracking-wider" style={{ color: '#a69484' }}>Breakdown</span>
-                            <span className="h-px flex-1" style={{ background: 'rgba(217, 119, 6, 0.05)' }} />
+                            <span className="text-[9px] font-semibold uppercase tracking-wider" style={{ color: '#64748b' }}>Breakdown</span>
+                            <span className="h-px flex-1" style={{ background: 'rgba(13, 148, 136, 0.05)' }} />
                           </div>
                           {Object.entries(selectedScan.pillars).slice(0, 4).map(([k, v], i) => {
                             const label = k.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
@@ -335,10 +331,10 @@ export default function ClientDashboardPage({ onNavigate, initialResult, initial
                             return (
                               <div key={k}>
                                 <div className="flex items-center justify-between mb-1">
-                                  <span className="text-[11px] font-medium" style={{ color: '#6b5a4e' }}>{label}</span>
+                                  <span className="text-[11px] font-medium" style={{ color: '#475569' }}>{label}</span>
                                   <span className="text-[11px] font-semibold tabular-nums" style={{ color: scoreColor(val) }}>{val}</span>
                                 </div>
-                                <div className="h-[3px] rounded-full overflow-hidden" style={{ background: '#efe6da' }}>
+                                <div className="h-[3px] rounded-full overflow-hidden" style={{ background: '#f1f5f9' }}>
                                   <div className="h-full rounded-full transition-all duration-1000 ease-out" style={{
                                     width: `${val}%`,
                                     backgroundColor: scoreColor(val),
@@ -354,24 +350,24 @@ export default function ClientDashboardPage({ onNavigate, initialResult, initial
 
                     {/* Issues + Actions grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      {selectedScan.top_issues?.length > 0 && (
+                      {selectedScan.améliorations?.length > 0 && (
                         <div className="rounded-2xl bg-white p-5" style={{
                           boxShadow: '0 1px 2px rgba(0,0,0,0.03), 0 4px 12px rgba(0,0,0,0.04)',
-                          border: '1px solid rgba(217, 119, 6, 0.04)'
+                          border: '1px solid rgba(13, 148, 136, 0.04)'
                         }}>
                           <div className="flex items-center gap-2 mb-3">
-                            <span className="text-[9px] font-semibold uppercase tracking-wider" style={{ color: '#dc2626' }}>Issues</span>
+                            <span className="text-[9px] font-semibold uppercase tracking-wider" style={{ color: '#dc2626' }}>Points d'amélioration</span>
                             <span className="h-px flex-1" style={{ background: 'rgba(220, 38, 38, 0.06)' }} />
                           </div>
                           <div className="space-y-1.5">
-                            {selectedScan.top_issues.map((x, i) => (
+                            {selectedScan.améliorations.map((x, i) => (
                               <div key={i} className="flex items-start gap-2 p-2 rounded-lg" style={{
                                 background: i === 0 ? 'rgba(220, 38, 38, 0.03)' : 'transparent'
                               }}>
                                 <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-1.5" style={{
-                                  background: i === 0 ? '#dc2626' : i === 1 ? '#d97706' : '#ca8a04'
+                                  background: i === 0 ? '#dc2626' : i === 1 ? '#0d9488' : '#ca8a04'
                                 }} />
-                                <span className="text-[11px] leading-relaxed" style={{ color: '#6b5a4e' }}>{x}</span>
+                                <span className="text-[11px] leading-relaxed" style={{ color: '#475569' }}>{x}</span>
                               </div>
                             ))}
                           </div>
@@ -381,18 +377,18 @@ export default function ClientDashboardPage({ onNavigate, initialResult, initial
                       {selectedScan.action_plan?.length > 0 && (
                         <div className="rounded-2xl bg-white p-5" style={{
                           boxShadow: '0 1px 2px rgba(0,0,0,0.03), 0 4px 12px rgba(0,0,0,0.04)',
-                          border: '1px solid rgba(217, 119, 6, 0.04)'
+                          border: '1px solid rgba(13, 148, 136, 0.04)'
                         }}>
                           <div className="flex items-center gap-2 mb-3">
-                            <span className="text-[9px] font-semibold uppercase tracking-wider" style={{ color: '#d97706' }}>Actions</span>
-                            <span className="h-px flex-1" style={{ background: 'rgba(217, 119, 6, 0.06)' }} />
+                            <span className="text-[9px] font-semibold uppercase tracking-wider" style={{ color: '#0d9488' }}>Actions</span>
+                            <span className="h-px flex-1" style={{ background: 'rgba(13, 148, 136, 0.06)' }} />
                           </div>
                           <div className="space-y-1.5">
                             {selectedScan.action_plan.slice(0, 4).map((a, i) => (
                               <div key={i} className="flex items-start gap-2 p-2 rounded-lg" style={{
-                                borderLeft: `2px solid ${a.impact === 'high' ? '#dc2626' : a.impact === 'medium' ? '#d97706' : '#059669'}`
+                                borderLeft: `2px solid ${a.impact === 'high' ? '#dc2626' : a.impact === 'medium' ? '#0d9488' : '#059669'}`
                               }}>
-                                <span className="text-[11px] leading-relaxed" style={{ color: '#6b5a4e' }}>{a.action}</span>
+                                <span className="text-[11px] leading-relaxed" style={{ color: '#475569' }}>{a.action}</span>
                               </div>
                             ))}
                           </div>
@@ -403,14 +399,14 @@ export default function ClientDashboardPage({ onNavigate, initialResult, initial
                     {/* CTA — Full Report / Upgrade */}
                     {!selectedScan.paid && selectedScan.score !== undefined && (
                       <div className="rounded-2xl p-5 text-center" style={{
-                        background: 'rgba(217, 119, 6, 0.04)',
-                        border: '1px solid rgba(217, 119, 6, 0.08)'
+                        background: 'rgba(13, 148, 136, 0.04)',
+                        border: '1px solid rgba(13, 148, 136, 0.08)'
                       }}>
-                        <h3 className="text-sm font-semibold mb-1" style={{ color: '#2d1f14' }}>
+                        <h3 className="text-sm font-semibold mb-1" style={{ color: '#1e293b' }}>
                           Unlock the full report
                         </h3>
-                        <p className="text-xs mb-4" style={{ color: '#a69484' }}>
-                          Get step-by-step instructions, priority scoring + weekly monitoring
+                        <p className="text-xs mb-4" style={{ color: '#64748b' }}>
+                          Complete report with prioritized fixes and weekly monitoring
                         </p>
                         <div className="flex items-center justify-center gap-3">
                           <button onClick={() => {
@@ -448,8 +444,8 @@ export default function ClientDashboardPage({ onNavigate, initialResult, initial
                             } catch (e) { console.error(e) }
                           }}
                             className="px-6 py-2.5 rounded-xl text-xs font-semibold transition-all border"
-                            style={{ borderColor: 'rgba(217, 119, 6, 0.12)', color: '#2d1f14' }}
-                            onMouseOver={e => e.currentTarget.style.background = 'rgba(217, 119, 6, 0.04)'}
+                            style={{ borderColor: 'rgba(13, 148, 136, 0.12)', color: '#1e293b' }}
+                            onMouseOver={e => e.currentTarget.style.background = 'rgba(13, 148, 136, 0.04)'}
                             onMouseOut={e => e.currentTarget.style.background = 'transparent'}>
                             Weekly Monitor — $19/mo
                           </button>
@@ -458,7 +454,7 @@ export default function ClientDashboardPage({ onNavigate, initialResult, initial
                     )}
                   </div>
                 ) : (
-                  <div className="flex items-center justify-center h-48 text-sm" style={{ color: '#a69484' }}>
+                  <div className="flex items-center justify-center h-48 text-sm" style={{ color: '#64748b' }}>
                     Select a scan from the history
                   </div>
                 )}
@@ -470,7 +466,7 @@ export default function ClientDashboardPage({ onNavigate, initialResult, initial
       </main>
 
       <footer className="pb-8 text-center">
-        <p className="text-[9px]" style={{ color: '#d5c8bc' }}>RankFix Agent · Powered by Hermes Agent · NVIDIA Nemotron 3 · Stripe</p>
+        <p className="text-[9px]" style={{ color: '#cbd5e1' }}>Pulse · Powered by Hermes Agent · Nemotron 3 · Stripe</p>
       </footer>
     </div>
   )

@@ -22,8 +22,8 @@ const I = ({ n, s = 18, c = '' }) => {
 }
 
 export default function LoginModal({ onClose, onLogin }) {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState(DEMO_ACCOUNT.email)
+  const [password, setPassword] = useState(DEMO_ACCOUNT.password)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
@@ -52,7 +52,7 @@ export default function LoginModal({ onClose, onLogin }) {
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4"
-      style={{ background: 'rgba(45, 31, 20, 0.5)', backdropFilter: 'blur(4px)' }}
+      style={{ background: 'rgba(30, 41, 59, 0.5)', backdropFilter: 'blur(4px)' }}
       onClick={onClose}>
 
       <div className="w-full max-w-sm rounded-2xl bg-white overflow-hidden animate-fadeUp"
@@ -65,15 +65,15 @@ export default function LoginModal({ onClose, onLogin }) {
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-lg flex items-center justify-center"
-                style={{ background: 'rgba(217, 119, 6, 0.08)' }}>
-                <I n="user" s={15} c="text-[#d97706]" />
+                style={{ background: 'rgba(13, 148, 136, 0.08)' }}>
+                <I n="user" s={15} c="text-[#0d9488]" />
               </div>
-              <span className="text-sm font-semibold tracking-tight" style={{ color: '#2d1f14' }}>Client Login</span>
+              <span className="text-sm font-semibold tracking-tight" style={{ color: '#1e293b' }}>Client Login</span>
             </div>
             <button onClick={onClose} className="p-1 rounded-lg transition-colors"
-              style={{ color: '#d5c8bc' }}
-              onMouseOver={e => e.currentTarget.style.color = '#2d1f14'}
-              onMouseOut={e => e.currentTarget.style.color = '#d5c8bc'}>
+              style={{ color: '#cbd5e1' }}
+              onMouseOver={e => e.currentTarget.style.color = '#1e293b'}
+              onMouseOut={e => e.currentTarget.style.color = '#cbd5e1'}>
               <I n="x" s={16} />
             </button>
           </div>
@@ -81,31 +81,31 @@ export default function LoginModal({ onClose, onLogin }) {
           {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-[10px] font-semibold uppercase tracking-wider mb-1.5" style={{ color: '#8a7a6c' }}>Email</label>
+              <label className="block text-[10px] font-semibold uppercase tracking-wider mb-1.5" style={{ color: '#64748b' }}>Email</label>
               <div className="relative">
-                <span className="absolute left-3.5 top-1/2 -translate-y-1/2" style={{ color: '#d5c8bc' }}>
+                <span className="absolute left-3.5 top-1/2 -translate-y-1/2" style={{ color: '#cbd5e1' }}>
                   <I n="user" s={14} />
                 </span>
                 <input type="email" value={email} onChange={e => setEmail(e.target.value)}
                   className="w-full pl-9 pr-3.5 py-2.5 rounded-xl text-sm bg-white border outline-none transition-all"
-                  style={{ borderColor: 'rgba(217, 119, 6, 0.12)', color: '#2d1f14' }}
-                  onFocus={e => e.target.style.borderColor = '#d97706'}
-                  onBlur={e => e.target.style.borderColor = 'rgba(217, 119, 6, 0.12)'}
+                  style={{ borderColor: 'rgba(13, 148, 136, 0.12)', color: '#1e293b' }}
+                  onFocus={e => e.target.style.borderColor = '#0d9488'}
+                  onBlur={e => e.target.style.borderColor = 'rgba(13, 148, 136, 0.12)'}
                   placeholder="rankfix@agent.com" />
               </div>
             </div>
 
             <div>
-              <label className="block text-[10px] font-semibold uppercase tracking-wider mb-1.5" style={{ color: '#8a7a6c' }}>Password</label>
+              <label className="block text-[10px] font-semibold uppercase tracking-wider mb-1.5" style={{ color: '#64748b' }}>Password</label>
               <div className="relative">
-                <span className="absolute left-3.5 top-1/2 -translate-y-1/2" style={{ color: '#d5c8bc' }}>
+                <span className="absolute left-3.5 top-1/2 -translate-y-1/2" style={{ color: '#cbd5e1' }}>
                   <I n="lock" s={14} />
                 </span>
                 <input type="password" value={password} onChange={e => setPassword(e.target.value)}
                   className="w-full pl-9 pr-3.5 py-2.5 rounded-xl text-sm bg-white border outline-none transition-all"
-                  style={{ borderColor: 'rgba(217, 119, 6, 0.12)', color: '#2d1f14' }}
-                  onFocus={e => e.target.style.borderColor = '#d97706'}
-                  onBlur={e => e.target.style.borderColor = 'rgba(217, 119, 6, 0.12)'}
+                  style={{ borderColor: 'rgba(13, 148, 136, 0.12)', color: '#1e293b' }}
+                  onFocus={e => e.target.style.borderColor = '#0d9488'}
+                  onBlur={e => e.target.style.borderColor = 'rgba(13, 148, 136, 0.12)'}
                   placeholder="••••••••" />
               </div>
             </div>
@@ -122,7 +122,7 @@ export default function LoginModal({ onClose, onLogin }) {
 
             <button type="submit" disabled={loading}
               className="w-full py-3 rounded-xl text-sm font-semibold text-white transition-all flex items-center justify-center gap-2"
-              style={{ background: '#d97706' }}
+              style={{ background: 'linear-gradient(135deg, #0f766e 0%, #0d9488 100%)' }}
               onMouseOver={e => { if (!loading) e.currentTarget.style.opacity = '0.9' }}
               onMouseOut={e => { if (!loading) e.currentTarget.style.opacity = '1' }}>
               {loading ? <I n="spin" s={16} c="text-white" /> : <I n="arrow" s={14} c="text-white" />}
@@ -132,10 +132,10 @@ export default function LoginModal({ onClose, onLogin }) {
 
           {/* Hint */}
           <div className="mt-5 p-3 rounded-xl text-[10px] text-center leading-relaxed"
-            style={{ background: 'rgba(217, 119, 6, 0.04)', color: '#a69484' }}>
-            Demo account: <span style={{ color: '#2d1f14', fontWeight: 500 }}>rankfix@agent.com</span>
+            style={{ background: 'rgba(13, 148, 136, 0.04)', color: '#64748b' }}>
+            Demo account: <span style={{ color: '#0d9488', fontWeight: 500 }}>rankfix@agent.com</span>
             {' / '}
-            <span style={{ color: '#2d1f14', fontWeight: 500 }}>demo1234</span>
+            <span style={{ color: '#0d9488', fontWeight: 500 }}>demo1234</span>
           </div>
 
         </div>

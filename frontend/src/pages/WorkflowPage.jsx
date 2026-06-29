@@ -702,7 +702,7 @@ export default function WorkflowPage({ onNavigate }) {
                 <h2 className="text-2xl font-bold text-white mb-3">Initializing Agents...</h2>
                 <p className="text-sm text-gray-500 mb-8 text-center max-w-md">
                   Nemotron 3 Ultra is processing your brief and orchestrating 12 autonomous agents.
-                  This typically takes 30–60 seconds.
+                  This typically takes 2 minutes.
                 </p>
                 <div className="flex items-center gap-3">
                   <div className="w-3 h-3 rounded-full bg-indigo-400 animate-pulse" />

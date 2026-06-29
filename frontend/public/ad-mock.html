@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meta Ads — Agent Ads Mock</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #f0f2f5;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px;
+  }
+
+  .container {
+    max-width: 600px;
+    width: 100%;
+  }
+
+  /* Ad Card */
+  .ad-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08), 0 8px 32px rgba(0,0,0,0.04);
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+
+  /* Header */
+  .ad-header {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    gap: 10px;
+  }
+
+  .ad-profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .ad-info {
+    flex: 1;
+  }
+
+  .ad-brand {
+    font-weight: 600;
+    font-size: 14px;
+    color: #1c1e21;
+  }
+
+  .ad-brand small {
+    font-weight: 400;
+    color: #65676b;
+    font-size: 12px;
+  }
+
+  .ad-sponsored {
+    display: inline-block;
+    font-size: 11px;
+    color: #65676b;
+    margin-top: 1px;
+  }
+
+  .ad-sponsored span {
+    color: #1877f2;
+  }
+
+  .ad-dots {
+    color: #65676b;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  /* Image Area */
+  .ad-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #4facfe 100%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .ad-image::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.15) 0%, transparent 50%);
+  }
+
+  .ad-overlay {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white;
+    padding: 40px;
+  }
+
+  .ad-overlay .badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+  }
+
+  .ad-overlay h2 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  .ad-overlay .subtitle {
+    font-size: 16px;
+    opacity: 0.9;
+    margin-bottom: 20px;
+    font-weight: 400;
+  }
+
+  .ad-overlay .price {
+    font-size: 36px;
+    font-weight: 800;
+    text-shadow: 0 2px 15px rgba(0,0,0,0.3);
+    background: linear-gradient(135deg, #fff 0%, #ffd700 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .ad-overlay .cta {
+    display: inline-block;
+    background: white;
+    color: #1c1e21;
+    padding: 12px 32px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 15px;
+    margin-top: 16px;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+  }
+
+  .ad-overlay .cta:hover {
+    transform: scale(1.02);
+  }
+
+  /* Actions */
+  .ad-actions {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    gap: 20px;
+    border-top: 1px solid #e4e6eb;
+  }
+
+  .ad-actions button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    color: #65676b;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.15s;
+  }
+
+  .ad-actions button:hover {
+    background: #f0f2f5;
+  }
+
+  .ad-actions .like-icon { color: #1877f2; }
+  .ad-actions .comment-icon { color: #65676b; }
+  .ad-actions .share-icon { color: #65676b; }
+
+  /* Stats */
+  .ad-stats {
+    padding: 8px 16px 4px;
+    font-size: 13px;
+    color: #65676b;
+    border-top: 1px solid #e4e6eb;
+  }
+
+  .ad-stats strong { color: #1c1e21; }
+
+  /* Agent Badge */
+  .agent-badge {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+    padding: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  .agent-badge svg { vertical-align: middle; margin-right: 6px; }
+
+  /* Stripe receipt */
+  .stripe-receipt {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 16px;
+    font-family: 'SF Mono', 'Monaco', 'Menlo', monospace;
+  }
+
+  .stripe-receipt h3 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .stripe-receipt .row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    font-size: 12px;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .stripe-receipt .row:last-child {
+    border-bottom: none;
+  }
+
+  .stripe-receipt .label { color: #64748b; }
+  .stripe-receipt .value { color: #1e293b; font-weight: 600; }
+  .stripe-receipt .success { color: #059669; }
+  .stripe-receipt .stripe-logo {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: linear-gradient(135deg, #6772e5 0%, #635bff 100%);
+    border-radius: 4px;
+    vertical-align: middle;
+    margin-right: 4px;
+  }
+
+  .meta-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .meta-logo .m {
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, #1877f2 0%, #0d65d9 100%);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 20px;
+    letter-spacing: -0.3px;
+  }
+
+  .agent-nemotron {
+    text-align: center;
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 8px;
+    padding: 6px;
+    letter-spacing: 0.3px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="section-title">
+    🤖 Agent Ads — Ad Campaign Generated
+    <div class="agent-nemotron">Powered by Nemotron 3 • Nous Research</div>
+  </div>
+
+  <!-- Meta Ad Card -->
+  <div class="ad-card">
+    <div class="ad-header">
+      <div class="ad-profile-pic">B</div>
+      <div class="ad-info">
+        <div class="ad-brand">Boutique-Test <small>· Agent Ads</small></div>
+        <div class="ad-sponsored">
+          <span>Sponsored</span> · Paid via Stripe ✅
+        </div>
+      </div>
+      <div class="ad-dots">⋯</div>
+    </div>
+
+    <div class="ad-image">
+      <div class="ad-overlay">
+        <div class="badge">✨ Nouvelle Collection</div>
+        <h2>Été 2026</h2>
+        <div class="subtitle">Livraison Gratuite · Satisfait ou Remboursé</div>
+        <div class="price">$39</div>
+        <a class="cta" href="#">🛒 Shop Now</a>
+      </div>
+    </div>
+
+    <div class="ad-stats">
+      <strong>1,247</strong> impressions · <strong>312</strong> clicks · <strong>28</strong> conversions
+    </div>
+
+    <div class="ad-actions">
+      <button><span class="like-icon">👍</span> Like</button>
+      <button><span class="comment-icon">💬</span> Comment</button>
+      <button><span class="share-icon">📤</span> Share</button>
+    </div>
+
+    <div class="agent-badge">
+      ⚡ Created by Agent Ads · Nemotron 3 · Automaté via Kanban
+    </div>
+  </div>
+
+  <!-- Stripe Payment Receipt -->
+  <div class="stripe-receipt">
+    <h3>
+      <span class="stripe-logo"></span>
+      Stripe Payment Receipt
+    </h3>
+
+    <div class="meta-logo">
+      <div class="m">f</div>
+      <span style="font-size:13px;font-weight:600;color:#1e293b">Meta Ads Manager</span>
+      <span style="font-size:11px;color:#059669;margin-left:auto">✓ Paid</span>
+    </div>
+
+    <div class="row">
+      <span class="label">Campaign</span>
+      <span class="value">Meta Ads — Budget Optimization</span>
+    </div>
+    <div class="row">
+      <span class="label">Amount</span>
+      <span class="value">$50.00</span>
+    </div>
+    <div class="row">
+      <span class="label">Session</span>
+      <span class="value" style="font-size:10px;color:#64748b;">cs_test_a1AbkMYSxK6NjzZ5xLyZs52Q2Xs8kn1kVUV3cMDwIW8OEz01A9sb04OxRW</span>
+    </div>
+    <div class="row">
+      <span class="label">Status</span>
+      <span class="value success">✅ Complete</span>
+    </div>
+    <div class="row">
+      <span class="label">Date</span>
+      <span class="value">2026-06-29 09:30 UTC</span>
+    </div>
+    <div class="row">
+      <span class="label">Payment Method</span>
+      <span class="value">Visa ···· 4242</span>
+    </div>
+    <div class="row">
+      <span class="label">Receipt</span>
+      <span class="value" style="font-size:10px;color:#64748b;">recept_stripe_mock_a1b2c3</span>
+    </div>
+    <div class="row" style="border-top:2px solid #1e293b;margin-top:6px;padding-top:8px;">
+      <span class="label" style="font-weight:700;">Total Charged</span>
+      <span class="value" style="font-size:16px;color:#059669;">$50.00</span>
+    </div>
+  </div>
+
+  <!-- Other campaigns -->
+  <div style="display:flex;gap:12px;margin-top:16px;">
+    <div class="stripe-receipt" style="flex:1;">
+      <div style="font-size:11px;font-weight:600;color:#1e293b;margin-bottom:8px;">📋 monpetitstudio.fr</div>
+      <div class="row"><span class="label">Amount</span><span class="value">$18.00</span></div>
+      <div class="row"><span class="label">Status</span><span class="value success">✅ Paid</span></div>
+    </div>
+    <div class="stripe-receipt" style="flex:1;">
+      <div style="font-size:11px;font-weight:600;color:#1e293b;margin-bottom:8px;">📋 startup-test.io</div>
+      <div class="row"><span class="label">Amount</span><span class="value">$12.00</span></div>
+      <div class="row"><span class="label">Status</span><span class="value success">✅ Paid</span></div>
+    </div>
+  </div>
+
+  <div class="agent-nemotron" style="margin-top:24px;">
+    🤖 Generated by Agent Ads task: "Meta Ads Campaign — Budget Optimization"<br>
+    Stack: Hermes Agent + Nemotron 3 + Stripe API + Meta Ads Manager
+  </div>
+
+</div>
+</body>
+</html>

@@ -183,7 +183,7 @@ function LiveDemoSection({ stats }) {
             <span>🧠 Nemotron 3 Ultra</span>
           </div>
           <div className="mt-6 p-4 bg-indigo-500/5 border border-indigo-500/20 rounded-xl">
-            <p className="text-xs text-indigo-400 font-medium mb-2">📋 Pour la vidéo — Split Screen :</p>
+            <p className="text-xs text-indigo-400 font-medium mb-2">📋 For the demo video — Split Screen :</p>
             <div className="flex items-center justify-center gap-6 text-[10px] text-gray-500">
               <div className="flex items-center gap-2">
                 <div className="w-6 h-6 rounded-lg bg-indigo-500/20 flex items-center justify-center text-xs">1</div>
@@ -451,7 +451,7 @@ function OverviewTab({ stats }) {
           { label: 'Total Revenue', value: `$${revenue.toLocaleString()}`, change: '+12%', color: 'text-emerald-400' },
           { label: 'Net Profit', value: `$${profit.toLocaleString()}`, change: `${margin}%`, color: 'text-emerald-400' },
           { label: 'Projects', value: stats?.total_projects || stats?.total_clients || 0, change: `${stats?.completed_projects || 0} done`, color: 'text-blue-400' },
-          { label: 'Avg Price', value: `$${(stats?.avg_project_value || 0).toFixed(0)}`, color: 'text-amber-400' },
+          { label: 'Avg Price', value: `$${(stats?.avg_project_value || 0).toFixed(0)}`, color: 'text-teal-400' },
         ].map((s, i) => (
           <div key={i} className="bg-gray-800/30 rounded-xl p-5 border border-gray-800/50">
             <p className="text-2xl font-bold text-white">{s.value}</p>
@@ -555,7 +555,7 @@ function EmailTab() {
                 <div className="flex items-center gap-3 mt-3">
                   <span className="text-[10px] text-gray-600">{e.created_at?.split('T')[0]}</span>
                   <span className={`text-[10px] px-2 py-0.5 rounded-full ${
-                    e.status === 'processed' ? 'bg-emerald-500/10 text-emerald-400' : 'bg-amber-500/10 text-amber-400'
+                    e.status === 'processed' ? 'bg-emerald-500/10 text-emerald-400' : 'bg-teal-500/10 text-teal-400'
                   }`}>{e.status}</span>
                   {e.intent && <span className="text-[10px] px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400">{e.intent.replace('_', ' ')}</span>}
                 </div>
@@ -621,7 +621,7 @@ function AccountingTab() {
         <Card title="Project Stats" icon={<span className="text-lg">📦</span>}>
           <div className="space-y-3">
             <div className="flex justify-between text-sm"><span className="text-gray-400">Total Projects</span><span className="text-white font-semibold">{s.projects?.completed || 0}</span></div>
-            <div className="flex justify-between text-sm"><span className="text-gray-400">In Progress</span><span className="text-amber-400">{s.projects?.in_progress || 0}</span></div>
+            <div className="flex justify-between text-sm"><span className="text-gray-400">In Progress</span><span className="text-teal-400">{s.projects?.in_progress || 0}</span></div>
             <div className="flex justify-between text-sm"><span className="text-gray-400">Avg Project Value</span><span className="text-indigo-400">$${s.projects?.avg_value || 0}</span></div>
             <div className="flex justify-between text-sm border-t border-gray-800 pt-3"><span className="text-gray-400">New Clients (Month)</span><span className="text-emerald-400 font-semibold">+{s.clients?.new_this_month || 0}</span></div>
           </div>
@@ -656,7 +656,7 @@ function SupportTab() {
       {/* Stats */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {[
-          { label: 'Pending', value: stats?.pending_count || requests.length, color: 'text-amber-400' },
+          { label: 'Pending', value: stats?.pending_count || requests.length, color: 'text-teal-400' },
           { label: 'Completed (Week)', value: stats?.completed_week || 0, color: 'text-emerald-400' },
           { label: 'Avg Response', value: stats?.avg_response_time || '<5 min', color: 'text-blue-400' },
           { label: 'Satisfaction', value: `${stats?.satisfaction_rate || 98}%`, color: 'text-emerald-400' },
@@ -674,12 +674,12 @@ function SupportTab() {
           {requests.length === 0 && <p className="text-gray-500 text-sm text-center py-8">No pending requests</p>}
           {requests.map((r, i) => (
             <div key={i} className="flex items-start gap-4 p-4 rounded-xl bg-gray-800/30 border border-gray-800/50">
-              <div className="w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center text-amber-400 text-lg">📝</div>
+              <div className="w-10 h-10 rounded-full bg-teal-500/20 flex items-center justify-center text-teal-400 text-lg">📝</div>
               <div className="flex-1">
                 <p className="text-sm font-semibold text-white">{r.type || r.request_type || 'Modification'} — {r.client_name || r.client_id || 'Client'}</p>
                 <p className="text-xs text-gray-500 mt-1">{r.description || r.details || ''}</p>
                 <div className="flex items-center gap-3 mt-2">
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-400">{r.status || 'pending'}</span>
+                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-teal-500/10 text-teal-400">{r.status || 'pending'}</span>
                   <span className="text-[10px] text-gray-600">{r.created_at?.split('T')[0] || ''}</span>
                 </div>
               </div>

@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1920, height=1080">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <title>Stripe Checkout — Live Data</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      background: #F8FAFC;
+      width: 1920px; height: 1080px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      font-family: 'Inter', sans-serif;
+      color: #0F172A;
+      padding: 60px 100px;
+      position: relative; overflow: hidden;
+    }
+    .circle-1 {
+      position: absolute; top: -200px; right: -200px;
+      width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(13,148,136,0.05) 0%, transparent 70%);
+    }
+    .circle-2 {
+      position: absolute; bottom: -300px; left: -150px;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(13,148,136,0.04) 0%, transparent 70%);
+    }
+    .logo {
+      position: absolute; top: 40px; left: 40px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .logo-dot { width: 12px; height: 12px; background: #0D9488; border-radius: 50%; }
+    .logo-text { font-family: 'Instrument Serif', Georgia, serif; font-size: 24px; color: #0F172A; }
+    .tag {
+      position: absolute; top: 40px; right: 40px;
+      padding: 8px 20px; background: rgba(13,148,136,0.08);
+      border: 1px solid rgba(13,148,136,0.1); border-radius: 20px;
+      font-size: 12px; font-weight: 600; color: #0D9488;
+      letter-spacing: 0.15em; text-transform: uppercase;
+    }
+    .content { position: relative; z-index: 1; text-align: center; width: 100%; max-width: 1200px; }
+    .pre-title {
+      font-size: 13px; font-weight: 600; letter-spacing: 0.25em;
+      text-transform: uppercase; color: #94A3B8; margin-bottom: 16px;
+    }
+    h1 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 64px; font-weight: 400; color: #0F172A;
+      line-height: 1.08; margin-bottom: 8px;
+    }
+    h1 em { font-style: italic; color: #0D9488; }
+    .subtitle { font-size: 18px; color: #64748B; margin-bottom: 36px; }
+
+    .receipt {
+      background: #FFFFFF;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02);
+      border: 1px solid #E2E8F0;
+      border-radius: 24px;
+      padding: 40px 48px;
+      max-width: 680px; margin: 0 auto 24px;
+      text-align: left;
+    }
+    .receipt-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 24px; padding-bottom: 20px;
+      border-bottom: 1px solid #E2E8F0;
+    }
+    .receipt-logo { display: flex; align-items: center; gap: 8px; }
+    .stripe-icon {
+      width: 36px; height: 36px;
+      background: linear-gradient(135deg, #6772E5, #635BFF);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; font-weight: 800; color: white;
+    }
+    .receipt-title { font-size: 18px; font-weight: 700; color: #0F172A; }
+    .receipt-badge {
+      padding: 6px 16px; border-radius: 20px;
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .badge-open { background: rgba(13,148,136,0.1); color: #0D9488; }
+
+    .receipt-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 0; border-bottom: 1px solid #E2E8F0;
+    }
+    .receipt-row:last-child { border-bottom: none; }
+    .row-label { font-size: 13px; color: #64748B; font-weight: 500; }
+    .row-value { font-size: 14px; color: #0F172A; font-weight: 600; }
+    .row-value.mono { font-family: 'SF Mono', 'Menlo', monospace; font-size: 12px; color: #94A3B8; font-weight: 400; }
+    .row-value.green { color: #059669; }
+
+    .amount-row {
+      background: rgba(13,148,136,0.04);
+      border-radius: 12px; padding: 16px 20px; margin: 8px 0;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .amount-label { font-size: 14px; font-weight: 600; color: #0F172A; }
+    .amount-value { font-size: 32px; font-weight: 800; color: #059669; letter-spacing: -0.5px; }
+
+    .agent-line {
+      text-align: center; font-size: 11px; color: #94A3B8;
+      margin-top: 8px; letter-spacing: 0.3px;
+    }
+    .agent-line strong { color: #0D9488; }
+
+    .mini-list {
+      background: #FFFFFF;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02);
+      border: 1px solid #E2E8F0;
+      border-radius: 16px;
+      padding: 20px 28px;
+      max-width: 680px; margin: 0 auto;
+    }
+    .mini-title {
+      font-size: 10px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; color: #64748B; text-align: left;
+      margin-bottom: 10px;
+    }
+    .mini-item {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 6px 0; font-size: 12px; border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+    .mini-item:last-child { border-bottom: none; }
+    .mini-amount { font-weight: 700; color: #0F172A; }
+    .mini-status { font-size: 10px; padding: 2px 8px; border-radius: 10px; background: rgba(13,148,136,0.08); color: #0D9488; }
+
+    hr { width: 60px; height: 2px; background: rgba(13,148,136,0.15); border: none; margin: 20px auto; }
+
+    .note {
+      font-size: 11px; color: #94A3B8; text-align: center;
+      max-width: 600px; margin: 12px auto 0;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="circle-1"></div>
+  <div class="circle-2"></div>
+
+  <div class="logo"><div class="logo-dot"></div><span class="logo-text">Pulse</span></div>
+  <div class="tag">NVIDIA Hackathon 2026</div>
+
+  <div class="content">
+    <div class="pre-title">Live from Stripe API</div>
+    <h1>Agent bought ads. <em>Stripe processed it.</em></h1>
+    <div class="subtitle">Real test-mode checkout — data fetched directly from Stripe</div>
+
+    <div class="receipt">
+      <div class="receipt-header">
+        <div class="receipt-logo">
+          <div class="stripe-icon">S</div>
+          <div>
+            <div class="receipt-title">Stripe Checkout</div>
+            <div style="font-size:11px;color:#64748B;font-weight:500;">EUR · Test Mode</div>
+          </div>
+        </div>
+        <div class="receipt-badge badge-open">UNPAID · OPEN</div>
+      </div>
+
+      <div class="receipt-row">
+        <span class="row-label">Item</span>
+        <span class="row-value">RankFix Ad Campaign — meta-ads</span>
+      </div>
+      <div class="receipt-row">
+        <span class="row-label">Session</span>
+        <span class="row-value mono">cs_test_a1vp5DMzn69m••••••••••</span>
+      </div>
+      <div class="receipt-row">
+        <span class="row-label">Created</span>
+        <span class="row-value">June 29, 2026 at 11:07 UTC</span>
+      </div>
+      <div class="receipt-row">
+        <span class="row-label">Mode</span>
+        <span class="row-value">payment</span>
+      </div>
+      <div class="receipt-row">
+        <span class="row-label">Success URL</span>
+        <span class="row-value mono">http://100.96.186.49:8000/admin?ad_paid=camp_3…</span>
+      </div>
+
+      <div class="amount-row">
+        <span class="amount-label">Total</span>
+        <span class="amount-value">€20.00</span>
+      </div>
+    </div>
+
+    <div class="agent-line">
+      🤖 Session created autonomously by <strong>Hermes Agent</strong> · Powered by NVIDIA Nemotron 3 Ultra
+    </div>
+
+    <div class="note">
+      ⚡ Checkout created by agent — unpaid because no one completed the payment flow.<br>
+      Stripe test-mode sessions expire after 24h.
+    </div>
+
+    <hr>
+
+    <div class="mini-list">
+      <div class="mini-title">📋 All Stripe Sessions Today (10 total)</div>
+      <div class="mini-item">
+        <span style="color:#64748B;font-size:10px;">11:07</span>
+        <span style="flex:1;margin:0 12px;font-size:11px;color:#0F172A;">cs_test_a1vp5DMzn69mHQsV4cwTxs…</span>
+        <span class="mini-amount">€20.00</span>
+        <span class="mini-status">unpaid</span>
+      </div>
+      <div class="mini-item">
+        <span style="color:#64748B;font-size:10px;">09:50</span>
+        <span style="flex:1;margin:0 12px;font-size:11px;color:#0F172A;">cs_test_a1axNNJkxvEVcSFdd2yY7l…</span>
+        <span class="mini-amount">€25.75</span>
+        <span class="mini-status">unpaid</span>
+      </div>
+      <div class="mini-item">
+        <span style="color:#64748B;font-size:10px;">09:33</span>
+        <span style="flex:1;margin:0 12px;font-size:11px;color:#0F172A;">cs_test_a1ZEJkkXuLlVRKXjBsbemf…</span>
+        <span class="mini-amount">€19.00</span>
+        <span class="mini-status">unpaid</span>
+      </div>
+      <div class="mini-item">
+        <span style="color:#64748B;font-size:10px;">09:33</span>
+        <span style="flex:1;margin:0 12px;font-size:11px;color:#0F172A;">cs_test_a1yuVOVaM4N2y6cOwpPkiZ…</span>
+        <span class="mini-amount">€19.00</span>
+        <span class="mini-status">unpaid</span>
+      </div>
+      <div class="mini-item">
+        <span style="color:#64748B;font-size:10px;">09:33</span>
+        <span style="flex:1;margin:0 12px;font-size:11px;color:#0F172A;">cs_test_a1Ommu1TSSA6GMCWedMGeP…</span>
+        <span class="mini-amount">€19.00</span>
+        <span class="mini-status">unpaid</span>
+      </div>
+      <div class="mini-item">
+        <span style="color:#64748B;font-size:10px;">09:33</span>
+        <span style="flex:1;margin:0 12px;font-size:11px;color:#0F172A;">cs_test_a1945YCvo5CN9H2CC9TM6o…</span>
+        <span class="mini-amount">€19.00</span>
+        <span class="mini-status">unpaid</span>
+      </div>
+      <div class="mini-item">
+        <span style="color:#64748B;font-size:10px;">09:33</span>
+        <span style="flex:1;margin:0 12px;font-size:11px;color:#0F172A;">cs_test_a1LPUjHXiTpZjXT9qKKcCD…</span>
+        <span class="mini-amount">€19.00</span>
+        <span class="mini-status">unpaid</span>
+      </div>
+      <div class="mini-item">
+        <span style="color:#64748B;font-size:10px;">09:30</span>
+        <span style="flex:1;margin:0 12px;font-size:11px;color:#0F172A;">cs_test_a17iSLBKQM5DcczElx09oG…</span>
+        <span class="mini-amount">€19.00</span>
+        <span class="mini-status">unpaid</span>
+      </div>
+      <div class="mini-item">
+        <span style="color:#64748B;font-size:10px;">09:30</span>
+        <span style="flex:1;margin:0 12px;font-size:11px;color:#0F172A;">cs_test_a1l1GQxC8VesGoQ1fr7EYc…</span>
+        <span class="mini-amount">€19.00</span>
+        <span class="mini-status">unpaid</span>
+      </div>
+      <div class="mini-item">
+        <span style="color:#64748B;font-size:10px;">09:30</span>
+        <span style="flex:1;margin:0 12px;font-size:11px;color:#0F172A;">cs_test_a1NFMuC54jqJerltedW58O…</span>
+        <span class="mini-amount">€19.00</span>
+        <span class="mini-status">unpaid</span>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:24px;">
+      📄 Report generated by Hermes Agent · Data from live Stripe API
+    </div>
+  </div>
+</body>
+</html>

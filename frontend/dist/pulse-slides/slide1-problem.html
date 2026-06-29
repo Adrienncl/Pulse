@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1920, height=1080">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Slide 1 — Problème</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      background: linear-gradient(135deg, #F5F0E8 0%, #EDE6DA 100%);
+      width: 1920px; height: 1080px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      font-family: 'Inter', sans-serif;
+      color: #2D1F14;
+      padding: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Decorative elements */
+    .circle-1 {
+      position: absolute; top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(217,119,6,0.04) 0%, transparent 70%);
+    }
+    .circle-2 {
+      position: absolute; bottom: -300px; left: -200px;
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(217,119,6,0.03) 0%, transparent 70%);
+    }
+    .logo {
+      position: absolute; top: 40px; left: 40px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .logo-dot {
+      width: 12px; height: 12px;
+      background: #D97706; border-radius: 50%;
+    }
+    .logo-text {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 24px; color: #2D1F14;
+    }
+    .tag {
+      position: absolute; top: 40px; right: 40px;
+      padding: 8px 20px;
+      background: rgba(217,119,6,0.08);
+      border: 1px solid rgba(217,119,6,0.1);
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #D97706;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    .content {
+      position: relative; z-index: 1;
+      text-align: center;
+      max-width: 1200px;
+    }
+    .pre-title {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #A69484;
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 80px;
+      font-weight: 400;
+      color: #2D1F14;
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+    h1 em {
+      font-style: italic;
+      color: #D97706;
+    }
+    .desc {
+      font-size: 24px;
+      color: #8A7A6C;
+      line-height: 1.5;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .pill-container {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 40px;
+    }
+    .pill {
+      padding: 10px 24px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 500;
+      border: 1px solid rgba(217,119,6,0.12);
+    }
+    .pill-amber { background: rgba(217,119,6,0.08); color: #D97706; border-color: rgba(217,119,6,0.15); }
+    .pill-green { background: rgba(5,150,105,0.08); color: #059669; border-color: rgba(5,150,105,0.15); }
+    .pill-red { background: rgba(220,38,38,0.06); color: #DC2626; border-color: rgba(220,38,38,0.1); }
+    .pill-purple { background: rgba(124,58,237,0.08); color: #7C3AED; border-color: rgba(124,58,237,0.15); }
+    .pill-gold { background: rgba(202,138,4,0.08); color: #CA8A04; border-color: rgba(202,138,4,0.15); }
+    .stat {
+      display: flex; gap: 48px; justify-content: center;
+      margin-top: 48px;
+    }
+    .stat-item { text-align: center; }
+    .stat-num { font-size: 36px; font-weight: 700; color: #D97706; }
+    .stat-label { font-size: 13px; color: #A69484; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.1em; }
+    hr {
+      width: 60px; height: 2px;
+      background: rgba(217,119,6,0.15);
+      border: none;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="circle-1"></div>
+  <div class="circle-2"></div>
+  <div class="logo">
+    <div class="logo-dot"></div>
+    <span class="logo-text">Pulse</span>
+  </div>
+
+  <div class="content">
+    <div class="pre-title">The problem</div>
+    <h1>
+      Your website is<br>
+      losing money.<br>
+      And you <em>don't see it</em>.
+    </h1>
+    <hr>
+    <div class="desc">
+      Hidden issues in visibility, trust, speed, conversion, and ranking.<br>
+      Each one costs you customers. Every single day.
+    </div>
+    <div class="pill-container">
+      <span class="pill pill-amber">🔍 Visibility</span>
+      <span class="pill pill-green">🔒 Trust</span>
+      <span class="pill pill-red">⚡ Performance</span>
+      <span class="pill pill-purple">💰 Conversion</span>
+      <span class="pill pill-gold">🏆 Ranking</span>
+    </div>
+    <div class="stat">
+      <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">AI Agents</div></div>
+      <div class="stat-item"><div class="stat-num">60s</div><div class="stat-label">Scan Time</div></div>
+      <div class="stat-item"><div class="stat-num">32+</div><div class="stat-label">Checks</div></div>
+      <div class="stat-item"><div class="stat-num">Free</div><div class="stat-label">To Start</div></div>
+    </div>
+  </div>
+</body>
+</html>

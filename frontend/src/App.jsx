@@ -11,6 +11,7 @@ import DashboardPage from './pages/DashboardPage.jsx'
 import ResultsPage from './pages/ResultsPage.jsx'
 import ScanPage from './pages/ScanPage.jsx'
 import ClientDashboardPage from './pages/ClientDashboardPage.jsx'
+import AdminDashboardPage from './pages/AdminDashboardPage.jsx'
 import LoginModal from './pages/LoginModal.jsx'
 
 const API = '/api'
@@ -378,17 +379,138 @@ function SettingsPage() {
    ═══════════════════════════════════════════════════════════ */
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('landing')
+  // ── Read initial page from URL hash ──
+  const initialHash = window.location.hash.slice(1) || 'landing'
+  const [pageFromHash, ...hashParams] = initialHash.split('?')
+  // Check if returning from Stripe checkout
+  const stripeParams = new URLSearchParams(window.location.search)
+  const isStripeReturn = stripeParams.get('checkout') === 'success'
+  const stripeTaskId = isStripeReturn ? stripeParams.get('task_id') || stripeParams.get('session_id') : null
+  const [currentPage, setCurrentPage] = useState(isStripeReturn ? 'stripe-loading' : pageFromHash)
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [scanResult, setScanResult] = useState(null)
-  const [scanTaskId, setScanTaskId] = useState(null)
-  const [scanUrl, setScanUrl] = useState(null)
+  const [scanTaskId, setScanTaskId] = useState(stripeTaskId)
+  const [scanUrl, setScanUrl] = useState(
+    pageFromHash === 'scan' && hashParams.length
+      ? new URLSearchParams(hashParams.join('?')).get('url') || ''
+      : ''
+  )
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [userEmail, setUserEmail] = useState('')
   const [userName, setUserName] = useState('')
   const [showLogin, setShowLogin] = useState(false)
   const [pendingNav, setPendingNav] = useState(null)
+  const [cookieConsent, setCookieConsent] = useState(() => {
+    return localStorage.getItem('pulse_cookie_consent') === 'accepted'
+  })
+
+  // ── URL-based routing ──
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.slice(1) || 'landing'
+      const [page, ...params] = hash.split('?')
+      if (page && page !== '') {
+        setCurrentPage(page)
+        if (params.length) {
+          const search = new URLSearchParams(params.join('?'))
+          if (search.get('url')) setScanUrl(search.get('url'))
+        }
+      }
+    }
+    // On mount: if hash points to results, fetch the data
+    const initialHash = window.location.hash.slice(1)
+    if (initialHash.startsWith('results?task=')) {
+      const task = new URLSearchParams(initialHash.split('?')[1]).get('task')
+      if (task) {
+        setScanTaskId(task)
+        setCurrentPage('results')
+        fetch(`/api/rankfix/status/${task}`)
+          .then(r => r.json())
+          .then(data => {
+            const result = data.result || data
+            if (result.score !== undefined) setScanResult(result)
+          })
+          .catch(() => {})
+      }
+    }
+    window.addEventListener('hashchange', handleHashChange)
+    return () => window.removeEventListener('hashchange', handleHashChange)
+  }, [])
+
+  // Update URL hash when page changes (but not for results — handled by navigate)
+  useEffect(() => {
+    if (currentPage === 'results') return  // results hash is set by navigate
+    const page = currentPage || 'landing'
+    let hash = page
+    if (page === 'scan' && scanUrl) hash = `scan?url=${encodeURIComponent(scanUrl)}`
+    const current = window.location.hash.slice(1)
+    if (current !== hash) {
+      window.location.hash = hash
+    }
+  }, [currentPage, scanUrl, scanTaskId])
+
+  // Handle Stripe return with checkout=success
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    if (params.get('checkout') === 'success') {
+      const tid = params.get('task_id')
+      const sid = params.get('session_id')
+      // Clean URL params without reload
+      window.history.replaceState({}, document.title, window.location.pathname)
+      if (tid || sid) {
+        fetch(`/api/rankfix/status/${tid || sid}`)
+          .then(r => r.json())
+          .then(data => {
+            const result = data.result || data
+            if (result.score !== undefined) {
+              result.paid = true
+              setScanResult(result)
+              setScanTaskId(tid)
+              setCurrentPage('results')
+            } else {
+              // Result not ready yet, poll
+              const pollIv = setInterval(() => {
+                fetch(`/api/rankfix/status/${tid || sid}`)
+                  .then(r2 => r2.json())
+                  .then(d2 => {
+                    const r2data = d2.result || d2
+                    if (r2data.score !== undefined) {
+                      clearInterval(pollIv)
+                      r2data.paid = true
+                      setScanResult(r2data)
+                      setScanTaskId(tid)
+                      setCurrentPage('results')
+                    }
+                  })
+                  .catch(() => {})
+              }, 2000)
+              setTimeout(() => clearInterval(pollIv), 120000)
+            }
+          })
+          .catch(() => {
+            // Stay on loading screen and retry — don't go to landing
+            setTimeout(() => {
+              // Retry the fetch
+              if (tid || sid) {
+                fetch(`/api/rankfix/status/${tid || sid}`)
+                  .then(r2 => r2.json())
+                  .then(d2 => {
+                    const r2data = d2.result || d2
+                    if (r2data.score !== undefined) {
+                      r2data.paid = true
+                      setScanResult(r2data)
+                      setScanTaskId(tid)
+                      setCurrentPage('results')
+                    }
+                  })
+                  .catch(() => {})
+              }
+            }, 5000)
+          })
+      }
+    }
+  }, [])
 
   const handleLogin = useCallback(({ email, name }) => {
     setIsLoggedIn(true)
@@ -427,13 +549,38 @@ function App() {
     if (data?.url) setScanUrl(data.url)
     setMobileMenuOpen(false)
     window.scrollTo(0, 0)
+    // Set hash for results so page refresh works
+    if (page === 'results' && (data?.taskId || data?.scanSessionId)) {
+      const tid = data.taskId || data.scanSessionId
+      const hash = `results?task=${tid}`
+      // Only update if different to avoid hashchange loop
+      if (window.location.hash !== `#${hash}`) {
+        window.location.hash = hash
+      }
+    }
   }, [isLoggedIn])
 
   // Public pages (no sidebar)
-  const publicPages = ['landing', 'products', 'brief', 'workflow', 'delivery', 'projects', 'dashboard', 'results', 'scan', 'client-dashboard']
+  const publicPages = ['landing', 'products', 'brief', 'workflow', 'delivery', 'projects', 'dashboard', 'results', 'scan', 'client-dashboard', 'admin']
   const isPublic = publicPages.includes(currentPage)
 
-  // Admin pages render inside the sidebar layout
+  // Stripe loading screen (separate from dark-themed public pages)
+  if (currentPage === 'stripe-loading') {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center" style={{ backgroundColor: '#ffffff' }}>
+        <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6"
+          style={{ background: 'rgba(13, 148, 136, 0.06)' }}>
+          <svg className="animate-spin" width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="10" stroke="#0d9488" strokeWidth="3" strokeDasharray="31.4 31.4" strokeLinecap="round" />
+          </svg>
+        </div>
+        <h2 className="text-lg font-semibold" style={{ color: '#1e293b' }}>Loading your report…</h2>
+        <p className="text-sm mt-1" style={{ color: '#64748b' }}>Please wait while we fetch your results</p>
+      </div>
+    )
+  }
+
+  // ── Public site (Landing, Brief, Workflow, Delivery) ──
   const renderAdminPage = () => {
     switch (currentPage) {
       case 'dashboard': return <DashboardPage />
@@ -449,6 +596,16 @@ function App() {
     return (
       <div className="min-h-screen bg-[#030712] text-white">
         {showLogin && <LoginModal onClose={() => setShowLogin(false)} onLogin={handleLogin} />}
+        {!cookieConsent && (
+          <div className="fixed bottom-0 left-0 right-0 z-50 p-4" style={{ background: 'rgba(30, 41, 59, 0.95)', backdropFilter: 'blur(12px)' }}>
+            <div className="max-w-4xl mx-auto flex items-center justify-between gap-4">
+              <p className="text-xs text-white/70">This site uses minimal cookies for scan functionality. No tracking or third-party cookies.</p>
+              <button onClick={() => { localStorage.setItem('pulse_cookie_consent', 'accepted'); setCookieConsent(true) }}
+                className="px-5 py-2 text-xs rounded-xl font-semibold whitespace-nowrap text-white"
+                style={{ background: 'linear-gradient(135deg, #0f766e 0%, #0d9488 100%)' }}>Accept</button>
+            </div>
+          </div>
+        )}
         {currentPage === 'landing' && <RankFixHome onNavigate={navigate} isLoggedIn={isLoggedIn} userEmail={userEmail} userName={userName} onOpenLogin={() => setShowLogin(true)} onLogout={handleLogout} />}
         {currentPage === 'products' && <ProductSelectionPage onNavigate={navigate} />}
         {currentPage === 'brief' && <BriefPage onNavigate={navigate} />}
@@ -459,6 +616,7 @@ function App() {
         {currentPage === 'results' && <ResultsPage result={scanResult} taskId={scanTaskId} onNavigate={navigate} />}
         {currentPage === 'scan' && <ScanPage url={scanUrl} onNavigate={navigate} />}
         {currentPage === 'client-dashboard' && <ClientDashboardPage onNavigate={navigate} initialResult={scanResult} initialTaskId={scanTaskId} isLoggedIn={isLoggedIn} userEmail={userEmail} userName={userName} onLogout={handleLogout} />}
+        {currentPage === 'admin' && <AdminDashboardPage onNavigate={navigate} />}
       </div>
     )
   }

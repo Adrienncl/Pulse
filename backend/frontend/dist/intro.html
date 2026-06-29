@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pulse — About</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #ffffff;
+      color: #0f172a;
+      line-height: 1.5;
+    }
+    .container { max-width: 880px; margin: 0 auto; padding: 40px 24px 60px; }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 60px 0 36px;
+    }
+    .hero-logo {
+      width: 72px; height: 72px;
+      background: linear-gradient(135deg, #0d9488, #14b8a6);
+      border-radius: 18px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 32px; font-weight: 800; color: #fff;
+      margin: 0 auto 12px;
+      box-shadow: 0 4px 20px rgba(13,148,136,0.2);
+    }
+    .hero h1 {
+      font-size: 56px; font-weight: 800;
+      letter-spacing: -1.5px;
+      margin-bottom: 6px;
+    }
+    .hero h1 span { color: #0d9488; }
+    .hero p {
+      font-size: 18px; color: #64748b;
+      max-width: 480px; margin: 0 auto;
+    }
+
+    /* Powered by logos */
+    .powered-by {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      margin: 36px 0;
+      padding: 20px 32px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+    }
+    .powered-by .label {
+      font-size: 12px; font-weight: 600;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .powered-by .logos {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .powered-by .logos img {
+      height: 28px;
+      opacity: 0.85;
+      transition: opacity 0.2s;
+    }
+    .powered-by .logos img:hover { opacity: 1; }
+
+    /* Stats */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+    .stat-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 24px 16px;
+      text-align: center;
+    }
+    .stat-card .num {
+      font-size: 36px; font-weight: 800; color: #0d9488;
+    }
+    .stat-card .label {
+      font-size: 13px; color: #64748b; margin-top: 4px;
+    }
+
+    /* Agent Cards */
+    .section-title {
+      font-size: 20px; font-weight: 700;
+      margin-bottom: 14px;
+      text-align: center;
+      color: #0f172a;
+    }
+    .group-label {
+      font-size: 13px; font-weight: 600;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 10px;
+      padding-left: 2px;
+    }
+    .agents {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+    .agent-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 18px 14px;
+      text-align: center;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .agent-card:hover {
+      border-color: #0d9488;
+      box-shadow: 0 4px 16px rgba(13,148,136,0.1);
+    }
+    .agent-card .icon { font-size: 28px; margin-bottom: 6px; }
+    .agent-card .name { font-weight: 700; font-size: 14px; color: #0f172a; }
+    .agent-card .desc { font-size: 12px; color: #64748b; margin-top: 3px; line-height: 1.35; }
+
+    /* Nemotron card highlighted */
+    .agent-card.highlight {
+      border-color: #0d9488;
+      background: linear-gradient(135deg, rgba(13,148,136,0.06), rgba(20,184,166,0.03));
+    }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+      background: linear-gradient(135deg, rgba(13,148,136,0.06), rgba(20,184,166,0.03));
+      border: 1px solid #0d9488;
+      border-radius: 16px;
+      padding: 36px;
+    }
+    .cta h2 {
+      font-size: 28px; font-weight: 800;
+      margin-bottom: 4px;
+    }
+    .cta p {
+      font-size: 14px; color: #64748b;
+      margin-bottom: 20px;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: #0d9488; color: #fff;
+      font-weight: 700; font-size: 16px;
+      padding: 14px 44px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .cta-btn:hover { background: #0f766e; transform: translateY(-1px); }
+
+    .footer {
+      text-align: center;
+      font-size: 12px; color: #94a3b8;
+      margin-top: 36px; padding-top: 20px;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 34px; }
+      .powered-by { flex-direction: column; gap: 12px; }
+      .stats { grid-template-columns: 1fr; }
+      .agents { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero-logo">P</div>
+      <h1>Meet <span>Pulse</span></h1>
+      <p>7 Hermes agents scan any website in 60s. Audit score + auto ad campaigns.</p>
+    </div>
+
+    <!-- Powered by -->
+    <div class="powered-by">
+      <span class="label">Powered by</span>
+      <div class="logos">
+        <img src="https://hermes-agent.nousresearch.com/docs/img/logo.png" alt="Hermes Agent" title="Hermes Agent" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Nvidia_logo.svg" alt="NVIDIA" title="NVIDIA Nemotron 3 Ultra" style="height:22px;" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg" alt="Stripe" title="Stripe Checkout" style="height:24px;" />
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats">
+      <div class="stat-card">
+        <div class="num">5</div>
+        <div class="label">Hermes Agents</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">1M</div>
+        <div class="label">Token Context</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">100%</div>
+        <div class="label">Autonomous</div>
+      </div>
+    </div>
+
+    <!-- Agents -->
+    <div class="section-title" style="margin-bottom:8px;">7 Specialized Agents</div>
+
+    <!-- Scan Agents -->
+    <div class="group-label">🔍 Website Audit</div>
+    <div class="agents" style="margin-bottom:24px;">
+      <div class="agent-card">
+        <div class="icon">👁</div>
+        <div class="name">Visibility</div>
+        <div class="desc">SEO — meta tags, indexing, sitemap</div>
+      </div>
+      <div class="agent-card">
+        <div class="icon">🛡</div>
+        <div class="name">Trust</div>
+        <div class="desc">SSL, privacy, TOS, social proof</div>
+      </div>
+      <div class="agent-card">
+        <div class="icon">⚡</div>
+        <div class="name">Performance</div>
+        <div class="desc">LCP, FID, CLS, caching, CDN</div>
+      </div>
+      <div class="agent-card">
+        <div class="icon">🎯</div>
+        <div class="name">Conversion</div>
+        <div class="desc">CTAs, forms, funnels, A/B tests</div>
+      </div>
+      <div class="agent-card">
+        <div class="icon">📊</div>
+        <div class="name">Rankings</div>
+        <div class="desc">Keywords, competitors, traffic</div>
+      </div>
+    </div>
+
+    <!-- Specialty Agents -->
+    <div class="group-label">⚡ Automation &amp; Infrastructure</div>
+    <div class="agents">
+      <div class="agent-card highlight">
+        <div class="icon">📢</div>
+        <div class="name">Ads Manager</div>
+        <div class="desc">Auto campaigns on Google &amp; Meta — budget tracking, blacklist</div>
+      </div>
+      <div class="agent-card highlight" style="border-color:#f59e0b;">
+        <div class="icon">⚙️</div>
+        <div class="name">Ops Agent</div>
+        <div class="desc">24/7 infra monitoring — uptime, SSL, auto-repair, system health</div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+      <h2>Scan your site →</h2>
+      <p>Free Pulse Score + action plan in 60 seconds</p>
+      <a href="/" class="cta-btn">Launch Pulse</a>
+    </div>
+
+    <div class="footer">Hackathon NVIDIA 2026 · Zero Employee Studio</div>
+  </div>
+</body>
+</html>
